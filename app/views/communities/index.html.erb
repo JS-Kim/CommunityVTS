@@ -1,0 +1,31 @@
+<h1>Listing communities</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Approved</th>
+    <th>Archived</th>
+    <th>Votable</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @communities.each do |community| %>
+  <tr>
+    <td><%= community.name %></td>
+    <td><%= community.description %></td>
+    <td><%= community.approved %></td>
+    <td><%= community.archived %></td>
+    <td><%= community.votable %></td>
+    <td><%= link_to 'Show', community %></td>
+    <td><%= link_to 'Edit', edit_community_path(community) %></td>
+    <td><%= link_to 'Destroy', community, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Community', new_community_path %>
