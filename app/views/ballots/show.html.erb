@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @ballot.content_id %>
+</p>
+
+<p>
+  <b>Over:</b>
+  <%= @ballot.over %>
+</p>
+
+<p>
+  <b>Outcome:</b>
+  <%= @ballot.outcome %>
+</p>
+
+<p>
+  <b>Vote type:</b>
+  <%= @ballot.vote_type %>
+</p>
+
+<p>
+  <b>Member:</b>
+  <%= @ballot.member_id %>
+</p>
+
+<p>
+  <b>Myballots:</b>
+  <%= @ballot.myballots_id %>
+</p>
+
+<p>
+  <b>Myballots type:</b>
+  <%= @ballot.myballots_type %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%= @ballot.author_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_ballot_path(@ballot) %> |
+<%= link_to 'Back', ballots_path %>

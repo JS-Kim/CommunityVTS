@@ -17,7 +17,8 @@ Colloki::Application.routes.draw do
 
   match 'users/:id', :to => 'users#show', :constraints => { :id =>  /[^\/]+/ }
   resources :stories, :comments, :users, :session, :votes, :follows, :feeds, :discuss
-  resources :communities
+  resources :communities, :cvotes, :ballots
+  
   root :to => 'topics#index'
 
   match 'community', :to => 'communities#show', :as => 'community'

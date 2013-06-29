@@ -196,16 +196,18 @@ $(function() {
       }
     },
 
-    community: function() {
+    community: function(dateRange) {
       if (this.view) {
-        this.view.showType(7);
+        this.view.dateRange = this.dateRangeInt(dateRange);
+        this.view.showType(10);
       } else {
         this.view = new window.StoryListView({
           el: this.$el,
+          router: this,
           user: this.user,
           viewer: this.viewer,
-          router: this,
-          type: 7
+          type: 10,
+          dateRange: this.dateRangeInt(dateRange)
         });
       }
     },
@@ -304,6 +306,8 @@ $(function() {
         route += "/following";
       } else if (view.type == 9) {
         route += "/map";
+      } else if (view.type == 10) {
+        route += "/community";
       } else {
         route += "/news";
       }

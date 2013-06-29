@@ -1,0 +1,27 @@
+<h1>Listing cvotes</h1>
+
+<table>
+  <tr>
+    <th>Ballot</th>
+    <th>User</th>
+    <th>Approval</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cvotes.each do |cvote| %>
+  <tr>
+    <td><%= cvote.ballot_id %></td>
+    <td><%= cvote.user_id %></td>
+    <td><%= cvote.approval %></td>
+    <td><%= link_to 'Show', cvote %></td>
+    <td><%= link_to 'Edit', edit_cvote_path(cvote) %></td>
+    <td><%= link_to 'Destroy', cvote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cvote', new_cvote_path %>

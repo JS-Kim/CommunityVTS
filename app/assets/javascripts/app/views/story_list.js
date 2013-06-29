@@ -52,7 +52,8 @@ $(function() {
         id: 9
       },
       "community": {
-        id: 10
+        id: 10,
+        header: "Updated Posts in your communities"
       }
     },
 
@@ -351,6 +352,8 @@ $(function() {
         text = this.types["likes"].header;
       } else if (this.type == this.types["following"].id) {
         text = this.types["following"].header;
+      } else if (this.type == this.types["community"].id) {
+        text = this.types["community"].header;
       } else if (this.type == this.types["rss"].id) {
 
         if (this.dateRange == 4) {

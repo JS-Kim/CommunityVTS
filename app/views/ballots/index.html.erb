@@ -1,0 +1,37 @@
+<h1>Listing ballots</h1>
+
+<table>
+  <tr>
+    <th>Content</th>
+    <th>Over</th>
+    <th>Outcome</th>
+    <th>Vote type</th>
+    <th>Member</th>
+    <th>Myballots</th>
+    <th>Myballots type</th>
+    <th>Author</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ballots.each do |ballot| %>
+  <tr>
+    <td><%= ballot.content_id %></td>
+    <td><%= ballot.over %></td>
+    <td><%= ballot.outcome %></td>
+    <td><%= ballot.vote_type %></td>
+    <td><%= ballot.member_id %></td>
+    <td><%= ballot.myballots_id %></td>
+    <td><%= ballot.myballots_type %></td>
+    <td><%= ballot.author_id %></td>
+    <td><%= link_to 'Show', ballot %></td>
+    <td><%= link_to 'Edit', edit_ballot_path(ballot) %></td>
+    <td><%= link_to 'Destroy', ballot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ballot', new_ballot_path %>

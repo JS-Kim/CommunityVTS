@@ -1,0 +1,49 @@
+<%= form_for(@ballot) do |f| %>
+  <% if @ballot.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ballot.errors.count, "error") %> prohibited this ballot from being saved:</h2>
+
+      <ul>
+      <% @ballot.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content_id %><br />
+    <%= f.number_field :content_id %>
+  </div>
+  <div class="field">
+    <%= f.label :over %><br />
+    <%= f.check_box :over %>
+  </div>
+  <div class="field">
+    <%= f.label :outcome %><br />
+    <%= f.text_field :outcome %>
+  </div>
+  <div class="field">
+    <%= f.label :vote_type %><br />
+    <%= f.text_field :vote_type %>
+  </div>
+  <div class="field">
+    <%= f.label :member_id %><br />
+    <%= f.number_field :member_id %>
+  </div>
+  <div class="field">
+    <%= f.label :myballots_id %><br />
+    <%= f.number_field :myballots_id %>
+  </div>
+  <div class="field">
+    <%= f.label :myballots_type %><br />
+    <%= f.text_field :myballots_type %>
+  </div>
+  <div class="field">
+    <%= f.label :author_id %><br />
+    <%= f.number_field :author_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
