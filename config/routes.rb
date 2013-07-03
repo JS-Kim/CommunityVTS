@@ -16,12 +16,26 @@ Colloki::Application.routes.draw do
   end
 
   match 'users/:id', :to => 'users#show', :constraints => { :id =>  /[^\/]+/ }
-  resources :stories, :comments, :users, :session, :votes, :follows, :feeds, :discuss
-  resources :communities, :cvotes, :ballots
-  
+
+  resources :stories, :comments, :users, :session, :votes, :follows, :feeds, :discuss 
+
+  #KJS. for 'community' concept
+  resources :notifications, :ballots
+  resources :communities do
+    collection do
+      put 'tagaction'
+    end
+  end
+  resources :cvotes do
+    collection do
+      put 'voteaction'
+    end
+  end
+
   root :to => 'topics#index'
 
-  match 'community', :to => 'communities#show', :as => 'community'
+
+#  match 'community', :to => 'communities#index', :as => 'community'
   match 'post_picture', :to => 'stories#new', :as => 'post_picture'
   match 'settings', :to => 'users#settings', :as => 'settings'
   match 'activate/:activation_code', :to => 'users#activate', :as => 'activate'

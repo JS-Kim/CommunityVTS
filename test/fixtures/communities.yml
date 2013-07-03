@@ -5,11 +5,11 @@ one:
   description: MyText
   approved: false
   archived: false
-  votable: false
+  voteable: false
 
 two:
   name: MyString
   description: MyText
   approved: false
   archived: false
-  votable: false
+  voteable: false

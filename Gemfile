@@ -32,6 +32,11 @@ gem 'therubyracer'
 gem 'less-rails'
 gem 'less-rails-bootstrap'
 
+#Debugger
+group :development do
+ gem 'ruby-debug19'
+end
+
 # Backbone, JS Templating, gon
 gem 'jquery-rails'
 gem 'rails-backbone'

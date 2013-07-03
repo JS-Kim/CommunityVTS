@@ -2,6 +2,7 @@ class CommunitiesController < ApplicationController
   # GET /communities
   # GET /communities.json
   def index
+    
     @communities = Community.all
 
     respond_to do |format|
@@ -79,5 +80,16 @@ class CommunitiesController < ApplicationController
       format.html { redirect_to communities_url }
       format.json { head :no_content }
     end
+  end
+
+  #KJS: for 'community' concept
+  def tagaction 
+    case params[:tagaction]
+      when 'archive'
+        Community.update_all(["archived=?", true], :id => params[:community_ids])
+      when 'restore'
+        Community.update_all(["archived=?", false], :id => params[:community_ids])
+    end
+    redirect_to communities_path
   end
 end

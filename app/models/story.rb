@@ -50,6 +50,11 @@ class Story < ActiveRecord::Base
   has_many :activity_items, :dependent => :destroy
   has_many :votes, :dependent => :destroy
 
+  #KJS: For 'community' concept
+  has_many :annotations
+  has_many :communities, :through => :annotations, :uniq => true
+  has_many :ballots, :as => :myballots
+
   has_attached_file :image,
   :styles => {
     :thumb => "200x150>",
@@ -275,6 +280,13 @@ end
       end
 
     # User Shared Posts
+    elsif params[:type].to_i == Story::Post
+      stories = Story.paginate(
+        :page => params[:page],
+        :order => "created_at DESC",
+        :conditions => {:kind => Story::Post});
+
+    #KJS User Shared Posts : community based posts later
     elsif params[:type].to_i == Story::Post
       stories = Story.paginate(
         :page => params[:page],

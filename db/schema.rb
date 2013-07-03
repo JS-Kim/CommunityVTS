@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130628202446) do
+ActiveRecord::Schema.define(:version => 20130703161841) do
 
   create_table "activity_items", :force => true do |t|
     t.integer  "user_id",                    :null => false
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(:version => 20130628202446) do
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
 
+  create_table "annotations", :force => true do |t|
+    t.integer  "community_id"
+    t.integer  "story_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "annotations", ["community_id"], :name => "index_annotations_on_community_id"
+  add_index "annotations", ["story_id"], :name => "index_annotations_on_story_id"
+
   create_table "ballots", :force => true do |t|
     t.integer  "content_id"
     t.boolean  "over"
@@ -67,10 +77,10 @@ ActiveRecord::Schema.define(:version => 20130628202446) do
     t.string   "name"
     t.text     "description"
     t.boolean  "approved"
-    t.boolean  "archived",    :default => false
-    t.boolean  "votable",     :default => true
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.boolean  "archived"
+    t.boolean  "voteable"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "cvotes", :force => true do |t|
@@ -100,6 +110,20 @@ ActiveRecord::Schema.define(:version => 20130628202446) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
+
+  add_index "memberships", ["community_id"], :name => "index_memberships_on_community_id"
+  add_index "memberships", ["user_id"], :name => "index_memberships_on_user_id"
+
+  create_table "notifications", :force => true do |t|
+    t.string   "message"
+    t.boolean  "finished"
+    t.boolean  "approved"
+    t.integer  "ballot_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "notifications", ["ballot_id"], :name => "index_notifications_on_ballot_id"
 
   create_table "provider_authentications", :force => true do |t|
     t.integer  "user_id"

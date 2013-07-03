@@ -1,4 +1,5 @@
 class Membership < ActiveRecord::Base
-  belongs_to :community_id 
-  belongs_to :user_id
+  belongs_to :community
+  belongs_to :user
+  # attr_accessible :title, :body
 end

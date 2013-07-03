@@ -80,4 +80,22 @@ class CvotesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def voteaction
+    case params[:theaction]
+      when 'yes'
+        Cvote.update_all(["approval=?", true], :id => params[:cvote_ids])
+      when 'no'
+        Cvote.update_all(["approval=?", false], :id => params[:cvote_ids])
+    end
+
+    #need to call vote_check for all of the ballots we're voting on
+    @cvote_ids = params[:cvotes_ids]
+    @cvote_ids.each do [cvote_id]
+      @cvote = Cvote.find[cvote_id]
+      Ballot.vote_check(@cvote.ballot)
+    end
+
+    redirect_to ballots_path
+  end
 end

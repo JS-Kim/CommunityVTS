@@ -223,4 +223,7 @@ class StoriesController < ApplicationController
     flash[:notice] = "Email was successfully sent!"
     redirect_back_or root_url
   end
+
+  #KJS. for 'community' concept
+  
 end

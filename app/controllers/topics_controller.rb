@@ -6,6 +6,8 @@ class TopicsController < ApplicationController
   end
 
   def index
+    #debugger
+
     gon.app_url = root_url
     gon.current_user = current_user
     @hashtags = Story.hashtags
@@ -68,6 +70,8 @@ class TopicsController < ApplicationController
   end
 
   def search
+    debugger
+    
     gon.app_url = root_url
     gon.current_user = current_user
     @stories = Story.search(params)

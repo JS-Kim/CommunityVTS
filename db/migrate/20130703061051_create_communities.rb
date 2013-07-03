@@ -4,8 +4,8 @@ class CreateCommunities < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.boolean :approved
-      t.boolean :archived, :default => false
-      t.boolean :votable, :default => true
+      t.boolean :archived
+      t.boolean :voteable
 
       t.timestamps
     end

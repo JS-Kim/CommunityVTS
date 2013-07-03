@@ -6,7 +6,7 @@
     <th>Description</th>
     <th>Approved</th>
     <th>Archived</th>
-    <th>Votable</th>
+    <th>Voteable</th>
     <th></th>
     <th></th>
     <th></th>
@@ -18,7 +18,7 @@
     <td><%= community.description %></td>
     <td><%= community.approved %></td>
     <td><%= community.archived %></td>
-    <td><%= community.votable %></td>
+    <td><%= community.voteable %></td>
     <td><%= link_to 'Show', community %></td>
     <td><%= link_to 'Edit', edit_community_path(community) %></td>
     <td><%= link_to 'Destroy', community, method: :delete, data: { confirm: 'Are you sure?' } %></td>

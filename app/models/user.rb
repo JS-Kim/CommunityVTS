@@ -38,6 +38,13 @@ class User < ActiveRecord::Base
   has_many :provider_authentications
   has_many :votes, :dependent => :destroy
 
+  #KJS. For 'community' concept
+  has_many :memberships
+  has_many :communities, :through => :memberships, :uniq => true
+  has_many :cvotes
+  has_many :ballots, :through => :cvotes
+  
+
   # Follow and get followed
   acts_as_followable
   acts_as_follower
