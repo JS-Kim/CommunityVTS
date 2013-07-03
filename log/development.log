@@ -15891,3 +15891,725 @@ Processing by TopicsController#search as JSON
   [1m[36mFollow Load (0.1ms)[0m  [1mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = 6 AND "follows"."follower_type" = 'User' AND "follows"."blocked" = 'f'[0m
   [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id IN (NULL)) ORDER BY created_at DESC LIMIT 30 OFFSET 0
 Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.9ms)
+Connecting to database specified by database.yml
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tag.page.
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tagging.page.
+Creating scope :page. Overwriting existing method Admin.page.
+  [1m[36m (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Creating scope :page. Overwriting existing method User.page.
+  [1m[35mSQL (2.0ms)[0m  DELETE FROM "users"
+Creating scope :page. Overwriting existing method Community.page.
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "communities"[0m
+Creating scope :page. Overwriting existing method Ballot.page.
+Connecting to database specified by database.yml
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tag.page.
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tagging.page.
+Creating scope :page. Overwriting existing method Admin.page.
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Creating scope :page. Overwriting existing method User.page.
+  [1m[35mSQL (2.7ms)[0m  DELETE FROM "users"
+Creating scope :page. Overwriting existing method Community.page.
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "communities"[0m
+Creating scope :page. Overwriting existing method Ballot.page.
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "ballots"
+Creating scope :page. Overwriting existing method Cvote.page.
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "cvotes"[0m
+Creating scope :page. Overwriting existing method Notification.page.
+  [1m[35mSQL (1.4ms)[0m  DELETE FROM "notifications"
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE (email = 'bob@company.com')[0m
+WARNING: Can't mass-assign protected attributes: name
+Connecting to database specified by database.yml
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tag.page.
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tagging.page.
+Creating scope :page. Overwriting existing method Admin.page.
+  [1m[36m (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Creating scope :page. Overwriting existing method User.page.
+  [1m[35mSQL (1.6ms)[0m  DELETE FROM "users"
+Creating scope :page. Overwriting existing method Community.page.
+  [1m[36mSQL (1.5ms)[0m  [1mDELETE FROM "communities"[0m
+Creating scope :page. Overwriting existing method Ballot.page.
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "ballots"
+Creating scope :page. Overwriting existing method Cvote.page.
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "cvotes"[0m
+Creating scope :page. Overwriting existing method Notification.page.
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "notifications"
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE (email = 'bob@company.com')[0m
+WARNING: Can't mass-assign protected attributes: name
+Connecting to database specified by database.yml
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tag.page.
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tagging.page.
+Creating scope :page. Overwriting existing method Admin.page.
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Creating scope :page. Overwriting existing method User.page.
+  [1m[35mSQL (3.2ms)[0m  DELETE FROM "users"
+Creating scope :page. Overwriting existing method Community.page.
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "communities"[0m
+Creating scope :page. Overwriting existing method Ballot.page.
+  [1m[35mSQL (0.9ms)[0m  DELETE FROM "ballots"
+Creating scope :page. Overwriting existing method Cvote.page.
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "cvotes"[0m
+Creating scope :page. Overwriting existing method Notification.page.
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "notifications"
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE (email = 'bob@company.com')[0m
+WARNING: Can't mass-assign protected attributes: name
+  [1m[35m (0.1ms)[0m  begin transaction
+Creating scope :page. Overwriting existing method ProviderAuthentication.page.
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."login" IS NULL LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('bob@company.com') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tag.page.
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tagging.page.
+Creating scope :page. Overwriting existing method Admin.page.
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Creating scope :page. Overwriting existing method User.page.
+  [1m[35mSQL (1.6ms)[0m  DELETE FROM "users"
+Creating scope :page. Overwriting existing method Community.page.
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "communities"[0m
+Creating scope :page. Overwriting existing method Ballot.page.
+  [1m[35mSQL (1.2ms)[0m  DELETE FROM "ballots"
+Creating scope :page. Overwriting existing method Cvote.page.
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM "cvotes"[0m
+Creating scope :page. Overwriting existing method Notification.page.
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "notifications"
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE (email = 'bob@company.com')[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Creating scope :page. Overwriting existing method ProviderAuthentication.page.
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER('bob') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('bob@company.com') LIMIT 1
+Binary data inserted for `string` type on column `crypted_password`
+Binary data inserted for `string` type on column `salt`
+  [1m[36mSQL (4.6ms)[0m  [1mINSERT INTO "users" ("activated_at", "activation_code", "bio", "created_at", "crypted_password", "email", "image_url", "location", "login", "realname", "remember_token", "remember_token_expires_at", "reset_code", "salt", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["activated_at", nil], ["activation_code", nil], ["bio", nil], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["crypted_password", "abbc732f4721ba6bc25f43afa756b76aa16f88b5"], ["email", "bob@company.com"], ["image_url", nil], ["location", nil], ["login", "bob"], ["realname", "Bob Tilford"], ["remember_token", nil], ["remember_token_expires_at", nil], ["reset_code", nil], ["salt", "ea9f978e51bd41435e11d7e815d2d2e747f54ece"], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["website", nil]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE (email = 'tom@company.com')[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER('tom') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('tom@company.com') LIMIT 1
+Binary data inserted for `string` type on column `crypted_password`
+Binary data inserted for `string` type on column `salt`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("activated_at", "activation_code", "bio", "created_at", "crypted_password", "email", "image_url", "location", "login", "realname", "remember_token", "remember_token_expires_at", "reset_code", "salt", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["activated_at", nil], ["activation_code", nil], ["bio", nil], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["crypted_password", "27a16f2dc0f380c91c546e9970224754a986f2b8"], ["email", "tom@company.com"], ["image_url", nil], ["location", nil], ["login", "tom"], ["realname", "Tom Martin"], ["remember_token", nil], ["remember_token_expires_at", nil], ["reset_code", nil], ["salt", "95ce840ae32dadbb226784190be8520bf5c9a540"], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["website", nil]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE (email = 'dan@company.com')[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER('dan') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('dan@company.com') LIMIT 1
+Binary data inserted for `string` type on column `crypted_password`
+Binary data inserted for `string` type on column `salt`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("activated_at", "activation_code", "bio", "created_at", "crypted_password", "email", "image_url", "location", "login", "realname", "remember_token", "remember_token_expires_at", "reset_code", "salt", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["activated_at", nil], ["activation_code", nil], ["bio", nil], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["crypted_password", "3e2f6d43ffe6e18d135aa4d5c8c484eb0d7c8299"], ["email", "dan@company.com"], ["image_url", nil], ["location", nil], ["login", "dan"], ["realname", "Dan McMillian"], ["remember_token", nil], ["remember_token_expires_at", nil], ["reset_code", nil], ["salt", "f79e1bbb193a44f2f79e2ff55b1642d8f67058d0"], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["website", nil]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE (email = 'john@company.com')[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER('john') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('john@company.com') LIMIT 1
+Binary data inserted for `string` type on column `crypted_password`
+Binary data inserted for `string` type on column `salt`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("activated_at", "activation_code", "bio", "created_at", "crypted_password", "email", "image_url", "location", "login", "realname", "remember_token", "remember_token_expires_at", "reset_code", "salt", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["activated_at", nil], ["activation_code", nil], ["bio", nil], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["crypted_password", "5c9acf8be9d02d20fb3f37308159147b5fdcf151"], ["email", "john@company.com"], ["image_url", nil], ["location", nil], ["login", "john"], ["realname", "John Pinnel"], ["remember_token", nil], ["remember_token_expires_at", nil], ["reset_code", nil], ["salt", "f71ed4697e870b9f8d89a70647bbc5e5446dc6ee"], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["website", nil]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE (email = 'sherley@company.com')[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER('sherley') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('sherley@company.com') LIMIT 1
+Binary data inserted for `string` type on column `crypted_password`
+Binary data inserted for `string` type on column `salt`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("activated_at", "activation_code", "bio", "created_at", "crypted_password", "email", "image_url", "location", "login", "realname", "remember_token", "remember_token_expires_at", "reset_code", "salt", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["activated_at", nil], ["activation_code", nil], ["bio", nil], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["crypted_password", "cc6c547bba2dad26b1604d3e456867aa97a27b94"], ["email", "sherley@company.com"], ["image_url", nil], ["location", nil], ["login", "sherley"], ["realname", "Sherley Montano"], ["remember_token", nil], ["remember_token_expires_at", nil], ["reset_code", nil], ["salt", "114f6e23b52d232c6c68286e789f2f5fd6cc0a19"], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["website", nil]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE (email = 'mary@company.com')[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER('mary') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('mary@company.com') LIMIT 1
+Binary data inserted for `string` type on column `crypted_password`
+Binary data inserted for `string` type on column `salt`
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("activated_at", "activation_code", "bio", "created_at", "crypted_password", "email", "image_url", "location", "login", "realname", "remember_token", "remember_token_expires_at", "reset_code", "salt", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["activated_at", nil], ["activation_code", nil], ["bio", nil], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["crypted_password", "590c945e3ccd6b33e4ddad3222e5b002deb1142d"], ["email", "mary@company.com"], ["image_url", nil], ["location", nil], ["login", "mary"], ["realname", "Mary Byford"], ["remember_token", nil], ["remember_token_expires_at", nil], ["reset_code", nil], ["salt", "968b7768438d2717512661f5dffd3d5db8d2a5a7"], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["website", nil]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE (email = 'david@company.com')[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER('david') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('david@company.com') LIMIT 1
+Binary data inserted for `string` type on column `crypted_password`
+Binary data inserted for `string` type on column `salt`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("activated_at", "activation_code", "bio", "created_at", "crypted_password", "email", "image_url", "location", "login", "realname", "remember_token", "remember_token_expires_at", "reset_code", "salt", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["activated_at", nil], ["activation_code", nil], ["bio", nil], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["crypted_password", "6b64a8e42621d230f0c59b27d3f7ccaf1b0be289"], ["email", "david@company.com"], ["image_url", nil], ["location", nil], ["login", "david"], ["realname", "David Jones"], ["remember_token", nil], ["remember_token_expires_at", nil], ["reset_code", nil], ["salt", "c0bb33f8f6410f022f0ff83c6680cead07f5f208"], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["website", nil]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE (email = 'kristen@company.com')[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER('kristen') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('kristen@company.com') LIMIT 1
+Binary data inserted for `string` type on column `crypted_password`
+Binary data inserted for `string` type on column `salt`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("activated_at", "activation_code", "bio", "created_at", "crypted_password", "email", "image_url", "location", "login", "realname", "remember_token", "remember_token_expires_at", "reset_code", "salt", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["activated_at", nil], ["activation_code", nil], ["bio", nil], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["crypted_password", "12d3117af1af204a565df735ef3d3ae72bdda5f5"], ["email", "kristen@company.com"], ["image_url", nil], ["location", nil], ["login", "kristen"], ["realname", "Kristen Scott"], ["remember_token", nil], ["remember_token_expires_at", nil], ["reset_code", nil], ["salt", "975e054ced146ab666717be284409a41f85f35f7"], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["website", nil]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE (email = 'susan@company.com')[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER('susan') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('susan@company.com') LIMIT 1
+Binary data inserted for `string` type on column `crypted_password`
+Binary data inserted for `string` type on column `salt`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("activated_at", "activation_code", "bio", "created_at", "crypted_password", "email", "image_url", "location", "login", "realname", "remember_token", "remember_token_expires_at", "reset_code", "salt", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["activated_at", nil], ["activation_code", nil], ["bio", nil], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["crypted_password", "a325db40e5b0e160b679ceefb2bd150378c99662"], ["email", "susan@company.com"], ["image_url", nil], ["location", nil], ["login", "susan"], ["realname", "Susan Williams"], ["remember_token", nil], ["remember_token_expires_at", nil], ["reset_code", nil], ["salt", "b5e2db6a5a7db28ab7096b353ec4325a1f3bf026"], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["website", nil]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE (email = 'jake@company.com')[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER('jake') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('jake@company.com') LIMIT 1
+Binary data inserted for `string` type on column `crypted_password`
+Binary data inserted for `string` type on column `salt`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("activated_at", "activation_code", "bio", "created_at", "crypted_password", "email", "image_url", "location", "login", "realname", "remember_token", "remember_token_expires_at", "reset_code", "salt", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["activated_at", nil], ["activation_code", nil], ["bio", nil], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["crypted_password", "a00a44690fd7cc2645c8d5f13cda7991752d5625"], ["email", "jake@company.com"], ["image_url", nil], ["location", nil], ["login", "jake"], ["realname", "Jake Williams"], ["remember_token", nil], ["remember_token_expires_at", nil], ["reset_code", nil], ["salt", "3fdae67be0665fec3340ba66d227f15b1b66a43d"], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["website", nil]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE (email = 'jessie@company.com')[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER('jessie') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('jessie@company.com') LIMIT 1
+Binary data inserted for `string` type on column `crypted_password`
+Binary data inserted for `string` type on column `salt`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("activated_at", "activation_code", "bio", "created_at", "crypted_password", "email", "image_url", "location", "login", "realname", "remember_token", "remember_token_expires_at", "reset_code", "salt", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["activated_at", nil], ["activation_code", nil], ["bio", nil], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["crypted_password", "1e8642da85702fb5bf844be566e1616cd4438a60"], ["email", "jessie@company.com"], ["image_url", nil], ["location", nil], ["login", "jessie"], ["realname", "Jessie Smith"], ["remember_token", nil], ["remember_token_expires_at", nil], ["reset_code", nil], ["salt", "5d2e7179557bc2efdc89c4c58e9f4cca8bc1c0ad"], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["website", nil]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE (email = 'sarah@company.com')[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER('sarah') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('sarah@company.com') LIMIT 1
+Binary data inserted for `string` type on column `crypted_password`
+Binary data inserted for `string` type on column `salt`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("activated_at", "activation_code", "bio", "created_at", "crypted_password", "email", "image_url", "location", "login", "realname", "remember_token", "remember_token_expires_at", "reset_code", "salt", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["activated_at", nil], ["activation_code", nil], ["bio", nil], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["crypted_password", "21f080ef9a36860a22289e802a59fc7ad04309b9"], ["email", "sarah@company.com"], ["image_url", nil], ["location", nil], ["login", "sarah"], ["realname", "Sarah Thompson"], ["remember_token", nil], ["remember_token_expires_at", nil], ["reset_code", nil], ["salt", "478feec55e360948f4f2eb3d1ba8015e5918cc3a"], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["website", nil]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE (email = 'brian@company.com')[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER('brian') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('brian@company.com') LIMIT 1
+Binary data inserted for `string` type on column `crypted_password`
+Binary data inserted for `string` type on column `salt`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("activated_at", "activation_code", "bio", "created_at", "crypted_password", "email", "image_url", "location", "login", "realname", "remember_token", "remember_token_expires_at", "reset_code", "salt", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["activated_at", nil], ["activation_code", nil], ["bio", nil], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["crypted_password", "906820a257eaedeef2d91e22b7ce246e4f3102ee"], ["email", "brian@company.com"], ["image_url", nil], ["location", nil], ["login", "brian"], ["realname", "Brian Caldwell"], ["remember_token", nil], ["remember_token_expires_at", nil], ["reset_code", nil], ["salt", "ba930cebee78c7ece26c88bdc2d037451f93682a"], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["website", nil]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE (email = 'allison@company.com')[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER('allison') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('allison@company.com') LIMIT 1
+Binary data inserted for `string` type on column `crypted_password`
+Binary data inserted for `string` type on column `salt`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("activated_at", "activation_code", "bio", "created_at", "crypted_password", "email", "image_url", "location", "login", "realname", "remember_token", "remember_token_expires_at", "reset_code", "salt", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["activated_at", nil], ["activation_code", nil], ["bio", nil], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["crypted_password", "884a40f4f34a4bb4c9a13b7e51f6d79b33925205"], ["email", "allison@company.com"], ["image_url", nil], ["location", nil], ["login", "allison"], ["realname", "Allison Watts"], ["remember_token", nil], ["remember_token_expires_at", nil], ["reset_code", nil], ["salt", "58b7e41537294c557f913a804bbb666da2ed1f6f"], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["website", nil]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE (email = 'michael@company.com')[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."login") = LOWER('michael') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('michael@company.com') LIMIT 1
+Binary data inserted for `string` type on column `crypted_password`
+Binary data inserted for `string` type on column `salt`
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("activated_at", "activation_code", "bio", "created_at", "crypted_password", "email", "image_url", "location", "login", "realname", "remember_token", "remember_token_expires_at", "reset_code", "salt", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["activated_at", nil], ["activation_code", nil], ["bio", nil], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["crypted_password", "67f16983f8f47eaebbd1431918b37e2010bdc396"], ["email", "michael@company.com"], ["image_url", nil], ["location", nil], ["login", "michael"], ["realname", "Michael Brown"], ["remember_token", nil], ["remember_token_expires_at", nil], ["reset_code", nil], ["salt", "fd79bc4fa61c8265b095ff99e45e6fbbc28ec567"], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["website", nil]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'michael@company.com' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'brian@company.com' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'sarah@company.com' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'bob@company.com' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'tom@company.com' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'dan@company.com' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'john@company.com' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'sherley@company.com' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'mary@company.com' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'david@company.com' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'kristen@company.com' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'susan@company.com' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'jake@company.com' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jessie@company.com' LIMIT 1
+Creating scope :page. Overwriting existing method Membership.page.
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCommunity Exists (0.1ms)[0m  SELECT 1 AS one FROM "communities" WHERE "communities"."name" = 'Corporate' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "provider_authentications" WHERE "provider_authentications"."user_id" = 21[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."login") = LOWER('michael') AND "users"."id" != 21) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('michael@company.com') AND "users"."id" != 21) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "provider_authentications" WHERE "provider_authentications"."user_id" = 19
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."login") = LOWER('brian') AND "users"."id" != 19) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('brian@company.com') AND "users"."id" != 19) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "provider_authentications" WHERE "provider_authentications"."user_id" = 18[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."login") = LOWER('sarah') AND "users"."id" != 18) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('sarah@company.com') AND "users"."id" != 18) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "provider_authentications" WHERE "provider_authentications"."user_id" = 7
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."login") = LOWER('bob') AND "users"."id" != 7) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('bob@company.com') AND "users"."id" != 7) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "provider_authentications" WHERE "provider_authentications"."user_id" = 8[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."login") = LOWER('tom') AND "users"."id" != 8) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('tom@company.com') AND "users"."id" != 8) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "provider_authentications" WHERE "provider_authentications"."user_id" = 9
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."login") = LOWER('dan') AND "users"."id" != 9) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('dan@company.com') AND "users"."id" != 9) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "provider_authentications" WHERE "provider_authentications"."user_id" = 10[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."login") = LOWER('john') AND "users"."id" != 10) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('john@company.com') AND "users"."id" != 10) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "provider_authentications" WHERE "provider_authentications"."user_id" = 11
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."login") = LOWER('sherley') AND "users"."id" != 11) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('sherley@company.com') AND "users"."id" != 11) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "provider_authentications" WHERE "provider_authentications"."user_id" = 12[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."login") = LOWER('mary') AND "users"."id" != 12) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('mary@company.com') AND "users"."id" != 12) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "provider_authentications" WHERE "provider_authentications"."user_id" = 13
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."login") = LOWER('david') AND "users"."id" != 13) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('david@company.com') AND "users"."id" != 13) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "provider_authentications" WHERE "provider_authentications"."user_id" = 14[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."login") = LOWER('kristen') AND "users"."id" != 14) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('kristen@company.com') AND "users"."id" != 14) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "provider_authentications" WHERE "provider_authentications"."user_id" = 15
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."login") = LOWER('susan') AND "users"."id" != 15) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('susan@company.com') AND "users"."id" != 15) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "provider_authentications" WHERE "provider_authentications"."user_id" = 16[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."login") = LOWER('jake') AND "users"."id" != 16) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('jake@company.com') AND "users"."id" != 16) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "provider_authentications" WHERE "provider_authentications"."user_id" = 17
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."login") = LOWER('jessie') AND "users"."id" != 17) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('jessie@company.com') AND "users"."id" != 17) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "communities" ("approved", "archived", "created_at", "description", "name", "updated_at", "voteable") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["approved", true], ["archived", nil], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["description", "Corporate-wide community"], ["name", "Corporate"], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["voteable", nil]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "memberships" ("community_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["community_id", 1], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["user_id", 21]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "memberships" ("community_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["community_id", 1], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["user_id", 19]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "memberships" ("community_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["community_id", 1], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["user_id", 18]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "memberships" ("community_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["community_id", 1], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["user_id", 7]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "memberships" ("community_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["community_id", 1], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["user_id", 8]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "memberships" ("community_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["community_id", 1], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["user_id", 9]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "memberships" ("community_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["community_id", 1], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["user_id", 10]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "memberships" ("community_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["community_id", 1], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["user_id", 11]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "memberships" ("community_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["community_id", 1], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["user_id", 12]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "memberships" ("community_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["community_id", 1], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["user_id", 13]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "memberships" ("community_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["community_id", 1], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["user_id", 14]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "memberships" ("community_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["community_id", 1], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["user_id", 15]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "memberships" ("community_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["community_id", 1], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["user_id", 16]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "memberships" ("community_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["community_id", 1], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["user_id", 17]]
+  [1m[35m (2.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'jake@company.com' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jessie@company.com' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'david@company.com' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'sherley@company.com' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mCommunity Exists (0.1ms)[0m  SELECT 1 AS one FROM "communities" WHERE "communities"."name" = 'Managers' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "provider_authentications" WHERE "provider_authentications"."user_id" = 16[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."login") = LOWER('jake') AND "users"."id" != 16) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('jake@company.com') AND "users"."id" != 16) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "provider_authentications" WHERE "provider_authentications"."user_id" = 17
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."login") = LOWER('jessie') AND "users"."id" != 17) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('jessie@company.com') AND "users"."id" != 17) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "provider_authentications" WHERE "provider_authentications"."user_id" = 13[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."login") = LOWER('david') AND "users"."id" != 13) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('david@company.com') AND "users"."id" != 13) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "provider_authentications" WHERE "provider_authentications"."user_id" = 11
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."login") = LOWER('sherley') AND "users"."id" != 11) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('sherley@company.com') AND "users"."id" != 11) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "communities" ("approved", "archived", "created_at", "description", "name", "updated_at", "voteable") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["approved", true], ["archived", nil], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["description", "Exclusive community used for managers"], ["name", "Managers"], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["voteable", nil]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "memberships" ("community_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["community_id", 2], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["user_id", 16]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "memberships" ("community_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["community_id", 2], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["user_id", 17]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "memberships" ("community_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["community_id", 2], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["user_id", 13]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "memberships" ("community_id", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["community_id", 2], ["created_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["updated_at", Wed, 03 Jul 2013 21:02:21 UTC +00:00], ["user_id", 11]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Connecting to database specified by database.yml
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tag.page.
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tagging.page.
+Creating scope :page. Overwriting existing method Admin.page.
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-03 17:03:15 -0400
+Processing by TopicsController#index as HTML
+Creating scope :page. Overwriting existing method Topic.page.
+  [1m[36mTopic Load (0.3ms)[0m  [1mSELECT "topics".* FROM "topics" ORDER BY created_at DESC LIMIT 5[0m
+Creating scope :page. Overwriting existing method User.page.
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+Creating scope :page. Overwriting existing method Story.page.
+  [1m[36mStory Load (2.2ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE (published_at >= '2013-07-03' AND published_at <= '2013-07-04' AND kind = 4)[0m
+  Rendered partials/description/_vts.html.erb (0.3ms)
+  Rendered topics/_type.html.erb (0.5ms)
+  Rendered topics/_type.html.erb (0.1ms)
+  Rendered topics/_source_filter.html.erb (0.6ms)
+  Rendered topics/_source_filter.html.erb (0.3ms)
+  Rendered partials/_footer.html.erb (0.8ms)
+  Rendered partials/modal/_suggestion.html.erb (2.8ms)
+  Rendered topics/_sidebar.html.erb (8.5ms)
+  Rendered topics/_sort.html.erb (0.3ms)
+Creating scope :page. Overwriting existing method TopicKeyword.page.
+  [1m[35mTopicKeyword Load (0.4ms)[0m  SELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 20
+  Rendered topics/_text_keywords.html.erb (78.0ms)
+  Rendered topics/_navigation_link.html.erb (79.3ms)
+  [1m[36mTopicKeyword Load (0.3ms)[0m  [1mSELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 19[0m
+  Rendered topics/_text_keywords.html.erb (2.5ms)
+  Rendered topics/_navigation_link.html.erb (3.2ms)
+  [1m[35mTopicKeyword Load (0.2ms)[0m  SELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 18
+  Rendered topics/_text_keywords.html.erb (2.0ms)
+  Rendered topics/_navigation_link.html.erb (2.6ms)
+  [1m[36mTopicKeyword Load (0.2ms)[0m  [1mSELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 17[0m
+  Rendered topics/_text_keywords.html.erb (2.3ms)
+  Rendered topics/_navigation_link.html.erb (3.0ms)
+  [1m[35mTopicKeyword Load (0.3ms)[0m  SELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 16
+  Rendered topics/_text_keywords.html.erb (2.1ms)
+  Rendered topics/_navigation_link.html.erb (2.7ms)
+  Rendered topics/_navigation.html.erb (94.6ms)
+  Rendered /Users/hideaway/.rvm/gems/ruby-1.9.2-p320/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (1.3ms)
+  Rendered topics/_footer.html.erb (0.6ms)
+  Rendered topics/index.html.erb within layouts/application (129.9ms)
+  Rendered partials/external/_analytics.html.erb (0.4ms)
+  Rendered partials/modal/_share.html.erb (0.9ms)
+Completed 200 OK in 383ms (Views: 197.1ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-07-03 17:03:16 -0400
+Served asset /application.css - 304 Not Modified (81ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-07-03 17:03:16 -0400
+Served asset /application.js - 304 Not Modified (163ms)
+
+
+Started GET "/assets/feed-icon-small.png" for 127.0.0.1 at 2013-07-03 17:03:16 -0400
+Served asset /feed-icon-small.png - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings-white.png" for 127.0.0.1 at 2013-07-03 17:03:16 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings-white.png - 304 Not Modified (3ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-03 17:03:16 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings.png - 304 Not Modified (2ms)
+
+
+Started GET "/search.json?query=&hashtag=&range=4&page=1&topic=-2&type=2&sort=1&source=-1" for 127.0.0.1 at 2013-07-03 17:03:16 -0400
+Processing by TopicsController#search as JSON
+  Parameters: {"query"=>"", "hashtag"=>"", "range"=>"4", "page"=>"1", "topic"=>"-2", "type"=>"2", "sort"=>"1", "source"=>"-1"}
+  [1m[36mTopic Load (0.4ms)[0m  [1mSELECT "topics".* FROM "topics" ORDER BY created_at DESC LIMIT 5[0m
+
+***** Debugger requested, but was not available (ensure ruby-debug is listed in Gemfile/installed as gem): Start server with --debugger to enable *****
+
+  [1m[35mStory Load (9.7ms)[0m  SELECT "stories".* FROM "stories" WHERE (published_at >= '2013-06-26 21:03:16.899468' AND published_at <= '2013-07-04' AND (kind = '2')) ORDER BY external_popularity DESC, published_at DESC LIMIT 12 OFFSET 0
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "stories" WHERE (published_at >= '2013-06-26 21:03:16.899468' AND published_at <= '2013-07-04' AND (kind = '2'))[0m
+Creating scope :page. Overwriting existing method Vote.page.
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 238
+Creating scope :page. Overwriting existing method Comment.page.
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 238[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 239
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 239[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 236
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 236[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 228
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 228[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 234
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 234[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 229
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 229[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 230
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 230[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 231
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 231[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 232
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 232[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 233
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 233[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 235
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 235[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 237
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 237[0m
+Completed 200 OK in 175ms (Views: 100.3ms | ActiveRecord: 14.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2013-07-03 17:03:21 -0400
+Processing by SessionsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE (activated_at IS NOT NULL) ORDER BY created_at DESC
+  Rendered partials/form/_signin.html.erb (1.8ms)
+  Rendered partials/form/_signup_short.html.erb (1.3ms)
+  Rendered partials/_footer.html.erb (0.3ms)
+  Rendered sessions/new.html.erb within layouts/application (6.0ms)
+  Rendered partials/external/_analytics.html.erb (0.0ms)
+  Rendered partials/modal/_share.html.erb (0.2ms)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-07-03 17:03:21 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-07-03 17:03:21 -0400
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/feed-icon-small.png" for 127.0.0.1 at 2013-07-03 17:03:22 -0400
+Served asset /feed-icon-small.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings-white.png" for 127.0.0.1 at 2013-07-03 17:03:22 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings-white.png - 304 Not Modified (0ms)
+
+
+Started POST "/session/create" for 127.0.0.1 at 2013-07-03 17:03:31 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"L1LWCstpf5VqRsVhA5X894OqznN2AkagD8rLMwJsUw8=", "login"=>"jessie", "password"=>"[FILTERED]", "remember_me"=>"", "redir"=>"http://localhost:3000/"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE (login = 'jessie' and activated_at IS NOT NULL) LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE (email = 'jessie' and activated_at IS NOT NULL) LIMIT 1
+Redirected to http://localhost:3000/login
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2013-07-03 17:03:31 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE (activated_at IS NOT NULL) ORDER BY created_at DESC[0m
+  Rendered partials/form/_signin.html.erb (1.2ms)
+  Rendered partials/form/_signup_short.html.erb (1.5ms)
+  Rendered partials/_footer.html.erb (0.4ms)
+  Rendered sessions/new.html.erb within layouts/application (5.5ms)
+  Rendered partials/external/_analytics.html.erb (0.0ms)
+  Rendered partials/modal/_share.html.erb (0.2ms)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-07-03 17:03:31 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-07-03 17:03:31 -0400
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/feed-icon-small.png" for 127.0.0.1 at 2013-07-03 17:03:31 -0400
+Served asset /feed-icon-small.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings-white.png" for 127.0.0.1 at 2013-07-03 17:03:31 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings-white.png - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tag.page.
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tagging.page.
+Creating scope :page. Overwriting existing method Admin.page.
+Connecting to database specified by database.yml
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tag.page.
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tagging.page.
+Creating scope :page. Overwriting existing method Admin.page.
+Connecting to database specified by database.yml
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tag.page.
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tagging.page.
+Creating scope :page. Overwriting existing method Admin.page.
+Connecting to database specified by database.yml
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tag.page.
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tagging.page.
+Creating scope :page. Overwriting existing method Admin.page.
+Connecting to database specified by database.yml
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tag.page.
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tagging.page.
+Creating scope :page. Overwriting existing method Admin.page.
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-03 17:36:13 -0400
+Processing by TopicsController#index as HTML
+Creating scope :page. Overwriting existing method Topic.page.
+  [1m[36mTopic Load (0.4ms)[0m  [1mSELECT "topics".* FROM "topics" ORDER BY created_at DESC LIMIT 5[0m
+Creating scope :page. Overwriting existing method Story.page.
+  [1m[35mStory Load (1.4ms)[0m  SELECT "stories".* FROM "stories" WHERE (published_at >= '2013-07-03' AND published_at <= '2013-07-04' AND kind = 4)
+  Rendered partials/description/_vts.html.erb (0.3ms)
+  Rendered topics/_type.html.erb (0.5ms)
+  Rendered topics/_type.html.erb (0.0ms)
+  Rendered topics/_source_filter.html.erb (0.6ms)
+  Rendered topics/_source_filter.html.erb (0.3ms)
+  Rendered partials/_footer.html.erb (0.8ms)
+  Rendered partials/modal/_suggestion.html.erb (3.1ms)
+  Rendered topics/_sidebar.html.erb (9.8ms)
+  Rendered topics/_sort.html.erb (0.3ms)
+Creating scope :page. Overwriting existing method TopicKeyword.page.
+  [1m[36mTopicKeyword Load (0.3ms)[0m  [1mSELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 20[0m
+  Rendered topics/_text_keywords.html.erb (78.5ms)
+  Rendered topics/_navigation_link.html.erb (79.8ms)
+  [1m[35mTopicKeyword Load (0.3ms)[0m  SELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 19
+  Rendered topics/_text_keywords.html.erb (2.6ms)
+  Rendered topics/_navigation_link.html.erb (3.3ms)
+  [1m[36mTopicKeyword Load (0.3ms)[0m  [1mSELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 18[0m
+  Rendered topics/_text_keywords.html.erb (2.1ms)
+  Rendered topics/_navigation_link.html.erb (2.8ms)
+  [1m[35mTopicKeyword Load (0.3ms)[0m  SELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 17
+  Rendered topics/_text_keywords.html.erb (2.2ms)
+  Rendered topics/_navigation_link.html.erb (2.9ms)
+  [1m[36mTopicKeyword Load (0.3ms)[0m  [1mSELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 16[0m
+  Rendered topics/_text_keywords.html.erb (2.3ms)
+  Rendered topics/_navigation_link.html.erb (3.0ms)
+  Rendered topics/_navigation.html.erb (95.9ms)
+  Rendered /Users/hideaway/.rvm/gems/ruby-1.9.2-p320/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (1.7ms)
+  Rendered topics/_footer.html.erb (0.6ms)
+  Rendered topics/index.html.erb within layouts/application (134.3ms)
+  Rendered partials/external/_analytics.html.erb (0.3ms)
+  Rendered partials/modal/_share.html.erb (45.9ms)
+Completed 200 OK in 372ms (Views: 245.2ms | ActiveRecord: 52.1ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-07-03 17:36:14 -0400
+Served asset /application.css - 304 Not Modified (57ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-07-03 17:36:14 -0400
+Served asset /application.js - 304 Not Modified (169ms)
+
+
+Started GET "/assets/feed-icon-small.png" for 127.0.0.1 at 2013-07-03 17:36:14 -0400
+Served asset /feed-icon-small.png - 304 Not Modified (3ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings-white.png" for 127.0.0.1 at 2013-07-03 17:36:14 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings-white.png - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-03 17:36:14 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings.png - 304 Not Modified (2ms)
+
+
+Started GET "/search.json?query=&hashtag=&range=4&page=1&topic=-2&type=2&sort=1&source=-1" for 127.0.0.1 at 2013-07-03 17:36:14 -0400
+Processing by TopicsController#search as JSON
+  Parameters: {"query"=>"", "hashtag"=>"", "range"=>"4", "page"=>"1", "topic"=>"-2", "type"=>"2", "sort"=>"1", "source"=>"-1"}
+  [1m[35mTopic Load (0.3ms)[0m  SELECT "topics".* FROM "topics" ORDER BY created_at DESC LIMIT 5
+
+***** Debugger requested, but was not available (ensure ruby-debug is listed in Gemfile/installed as gem): Start server with --debugger to enable *****
+
+  [1m[36mStory Load (8.0ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE (published_at >= '2013-06-26 21:36:14.748299' AND published_at <= '2013-07-04' AND (kind = '2')) ORDER BY external_popularity DESC, published_at DESC LIMIT 12 OFFSET 0[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "stories" WHERE (published_at >= '2013-06-26 21:36:14.748299' AND published_at <= '2013-07-04' AND (kind = '2'))
+Creating scope :page. Overwriting existing method Vote.page.
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 238[0m
+Creating scope :page. Overwriting existing method Comment.page.
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 238
+  [1m[36mVote Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 239[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 239
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 236[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 236
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 228[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 228
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 234[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 234
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 229[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 229
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 230[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 230
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 231[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 231
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 232[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 232
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 233[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 233
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 235[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 235
+  [1m[36mVote Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 237[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 237
+Completed 200 OK in 156ms (Views: 49.0ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2013-07-03 17:36:18 -0400
+Processing by SessionsController#new as HTML
+Creating scope :page. Overwriting existing method User.page.
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE (activated_at IS NOT NULL) ORDER BY created_at DESC[0m
+  Rendered partials/_new_users.html.erb (2.2ms)
+  Rendered partials/form/_signin.html.erb (2.0ms)
+  Rendered partials/form/_signup_short.html.erb (1.5ms)
+  Rendered partials/_footer.html.erb (0.6ms)
+  Rendered sessions/new.html.erb within layouts/application (10.3ms)
+  Rendered partials/external/_analytics.html.erb (0.0ms)
+  Rendered partials/modal/_share.html.erb (0.2ms)
+Completed 200 OK in 127ms (Views: 17.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-07-03 17:36:18 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-07-03 17:36:18 -0400
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/feed-icon-small.png" for 127.0.0.1 at 2013-07-03 17:36:19 -0400
+Served asset /feed-icon-small.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings-white.png" for 127.0.0.1 at 2013-07-03 17:36:19 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings-white.png - 304 Not Modified (0ms)
+
+
+Started POST "/session/create" for 127.0.0.1 at 2013-07-03 17:36:25 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"L1LWCstpf5VqRsVhA5X894OqznN2AkagD8rLMwJsUw8=", "login"=>"bob", "password"=>"[FILTERED]", "remember_me"=>"", "redir"=>"http://localhost:3000/"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE (login = 'bob' and activated_at IS NOT NULL) LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-03 17:36:25 -0400
+Processing by TopicsController#index as HTML
+  [1m[36mTopic Load (0.4ms)[0m  [1mSELECT "topics".* FROM "topics" ORDER BY created_at DESC LIMIT 5[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+  [1m[36mStory Load (0.4ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE (published_at >= '2013-07-03' AND published_at <= '2013-07-04' AND kind = 4)[0m
+  Rendered topics/_type.html.erb (0.1ms)
+  Rendered topics/_type.html.erb (0.1ms)
+  Rendered topics/_source_filter.html.erb (0.4ms)
+  Rendered topics/_source_filter.html.erb (0.3ms)
+Creating scope :page. Overwriting existing method Follow.page.
+  [1m[35mFollow Load (0.1ms)[0m  SELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = 7 AND "follows"."follower_type" = 'User' AND "follows"."blocked" = 'f'
+  Rendered partials/_footer.html.erb (0.8ms)
+  Rendered partials/modal/_suggestion.html.erb (1.1ms)
+  Rendered topics/_sidebar.html.erb (21.1ms)
+  Rendered topics/_sort.html.erb (0.0ms)
+  [1m[36mTopicKeyword Load (0.3ms)[0m  [1mSELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 20[0m
+  Rendered topics/_text_keywords.html.erb (2.7ms)
+  Rendered topics/_navigation_link.html.erb (3.5ms)
+  [1m[35mTopicKeyword Load (0.3ms)[0m  SELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 19
+  Rendered topics/_text_keywords.html.erb (2.2ms)
+  Rendered topics/_navigation_link.html.erb (3.0ms)
+  [1m[36mTopicKeyword Load (0.3ms)[0m  [1mSELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 18[0m
+  Rendered topics/_text_keywords.html.erb (2.6ms)
+  Rendered topics/_navigation_link.html.erb (3.6ms)
+  [1m[35mTopicKeyword Load (0.3ms)[0m  SELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 17
+  Rendered topics/_text_keywords.html.erb (2.4ms)
+  Rendered topics/_navigation_link.html.erb (3.3ms)
+  [1m[36mTopicKeyword Load (0.4ms)[0m  [1mSELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 16[0m
+  Rendered topics/_text_keywords.html.erb (2.9ms)
+  Rendered topics/_navigation_link.html.erb (3.9ms)
+  Rendered topics/_navigation.html.erb (20.8ms)
+  Rendered /Users/hideaway/.rvm/gems/ruby-1.9.2-p320/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (0.7ms)
+  Rendered topics/_footer.html.erb (0.1ms)
+  Rendered topics/index.html.erb within layouts/application (96.7ms)
+  Rendered partials/external/_analytics.html.erb (0.0ms)
+  Rendered partials/modal/_share.html.erb (1.0ms)
+Completed 200 OK in 114ms (Views: 103.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-07-03 17:36:25 -0400
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-07-03 17:36:25 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/feed-icon-small.png" for 127.0.0.1 at 2013-07-03 17:36:25 -0400
+Served asset /feed-icon-small.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-03 17:36:25 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings-white.png" for 127.0.0.1 at 2013-07-03 17:36:25 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings-white.png - 304 Not Modified (0ms)
+
+
+Started GET "/search.json?query=&hashtag=&range=4&page=1&topic=-2&type=2&sort=1&source=-1&user_id=7" for 127.0.0.1 at 2013-07-03 17:36:25 -0400
+Processing by TopicsController#search as JSON
+  Parameters: {"query"=>"", "hashtag"=>"", "range"=>"4", "page"=>"1", "topic"=>"-2", "type"=>"2", "sort"=>"1", "source"=>"-1", "user_id"=>"7"}
+  [1m[35mTopic Load (0.3ms)[0m  SELECT "topics".* FROM "topics" ORDER BY created_at DESC LIMIT 5
+
+***** Debugger requested, but was not available (ensure ruby-debug is listed in Gemfile/installed as gem): Start server with --debugger to enable *****
+
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+  [1m[35mStory Load (6.4ms)[0m  SELECT "stories".* FROM "stories" WHERE (published_at >= '2013-06-26 21:36:25.792596' AND published_at <= '2013-07-04' AND (kind = '2')) ORDER BY external_popularity DESC, published_at DESC LIMIT 12 OFFSET 0
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "stories" WHERE (published_at >= '2013-06-26 21:36:25.792596' AND published_at <= '2013-07-04' AND (kind = '2'))[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 238
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 238[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 239
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 239[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 236
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 236[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 228
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 228[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 234
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 234[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 229
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 229[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 230
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 230[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 231
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 231[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 232
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 232[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 233
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 233[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 235
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 235[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 237
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 237[0m
+Completed 200 OK in 53ms (Views: 33.9ms | ActiveRecord: 10.8ms)

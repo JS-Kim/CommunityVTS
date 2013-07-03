@@ -12,15 +12,21 @@ Cvote.delete_all
 Notification.delete_all
 
 #Create users
-[["bob@company.com", "Bob Tilford"], ["tom@company.com", "Tom Martin"], ["dan@company.com","Dan McMillian"],
-  ["john@company.com", "John Pinnel"], ["sherley@company.com", "Sherley Montano"], ["mary@company.com","Mary Byford"],
-  ["david@company.com", "David Jones"], ["kristen@company.com", "Kristen Scott"], ["susan@company.com", "Susan Williams"],
-  ["jake@company.com", "Jake Williams"], ["jessie@company.com", "Jessie Smith"], ["sarah@company.com", "Sarah Thompson"], 
-  ["brian@company.com", "Brian Caldwell"], ["allison@company.com", "Allison Watts"], ["michael@company.com", "Michael Brown"]].each do |u|
+[["bob@company.com", "bob", "Bob Tilford"], ["tom@company.com", "tom", "Tom Martin"], ["dan@company.com", "dan", "Dan McMillian"],
+  ["john@company.com", "john", "John Pinnel"], ["sherley@company.com", "sherley", "Sherley Montano"], ["mary@company.com", "mary", "Mary Byford"],
+  ["david@company.com", "david", "David Jones"], ["kristen@company.com", "kristen", "Kristen Scott"], ["susan@company.com", "susan", "Susan Williams"],
+  ["jake@company.com", "jake", "Jake Williams"], ["jessie@company.com", "jessie", "Jessie Smith"], ["sarah@company.com", "sarah", "Sarah Thompson"], 
+  ["brian@company.com", "brian", "Brian Caldwell"], ["allison@company.com", "allison", "Allison Watts"], ["michael@company.com", "michael", "Michael Brown"]].each do |u|
 	if (User.where("email = ?", u[0]).empty?)
-		User.new( :email => u[0], :name => u[1], :password => '123123', :password_confirmation => '123123' ).save!
+		User.new( :email => u[0], :login => u[1], :realname => u[2], :password => '123123' ).save!
 	end
 end
+#For VTS Users
+#rails console
+#> User.all.each { |u| u.activate}
+#> User.all.each { |u| u.make_activation_code; u.save} <== before this, comment 'protected' in User.rb
+
+
 #["Human Resources", ["sarah@company.com", "jessie@company.com", "susan@company.com", "mary@company.com", "sherley@company.com", "david@company.com", "dan@company.com", "john@company.com"], "A community tag for all Human Resources correspondence"]
 #Create communities and assign users
 [["Corporate", ["michael@company.com","brian@company.com", "sarah@company.com", "bob@company.com", "tom@company.com", "dan@company.com", "john@company.com", "sherley@company.com", "mary@company.com", "david@company.com", "kristen@company.com", "susan@company.com", "jake@company.com", "jessie@company.com"], "Corporate-wide community"],

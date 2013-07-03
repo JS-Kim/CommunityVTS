@@ -4,7 +4,7 @@ class Ballot < ActiveRecord::Base
   has_one :notification
   has_many :cvotes
   has_many :users, :through => :cvotes
-  belongs_to :myballots, :polymorthic => true
+  belongs_to :myballots, :polymorphic => true
   #vote_check is called every time someone submits a vote
   #This method will determine if a ballot is finished
 
