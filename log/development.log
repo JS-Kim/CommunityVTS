@@ -15187,3 +15187,707 @@ Creating scope :page. Overwriting existing method Comment.page.
   [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 237
   [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 237[0m
 Completed 200 OK in 713302ms (Views: 122.3ms | ActiveRecord: 13.2ms)
+Connecting to database specified by database.yml
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tag.page.
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tagging.page.
+Creating scope :page. Overwriting existing method Admin.page.
+
+
+Started GET "/logout" for 127.0.0.1 at 2013-07-03 15:45:54 -0400
+Processing by SessionsController#destroy as HTML
+Creating scope :page. Overwriting existing method User.page.
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Creating scope :page. Overwriting existing method ProviderAuthentication.page.
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "provider_authentications" WHERE "provider_authentications"."user_id" = 6[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE (LOWER("users"."login") = LOWER('hideaway') AND "users"."id" != 6) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('js.kim@vt.edu') AND "users"."id" != 6) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 261ms (ActiveRecord: 8.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-03 15:45:54 -0400
+Processing by TopicsController#index as HTML
+Creating scope :page. Overwriting existing method Topic.page.
+  [1m[36mTopic Load (0.2ms)[0m  [1mSELECT "topics".* FROM "topics" ORDER BY created_at DESC LIMIT 5[0m
+Creating scope :page. Overwriting existing method Story.page.
+  [1m[35mStory Load (1.5ms)[0m  SELECT "stories".* FROM "stories" WHERE (published_at >= '2013-07-03' AND published_at <= '2013-07-04' AND kind = 4)
+  Rendered partials/description/_vts.html.erb (0.3ms)
+  Rendered topics/_type.html.erb (0.5ms)
+  Rendered topics/_type.html.erb (0.0ms)
+  Rendered topics/_source_filter.html.erb (0.6ms)
+  Rendered topics/_source_filter.html.erb (0.3ms)
+  Rendered partials/_footer.html.erb (0.8ms)
+  Rendered partials/modal/_suggestion.html.erb (3.3ms)
+  Rendered topics/_sidebar.html.erb (8.9ms)
+  Rendered topics/_sort.html.erb (0.3ms)
+Creating scope :page. Overwriting existing method TopicKeyword.page.
+  [1m[36mTopicKeyword Load (0.4ms)[0m  [1mSELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 20[0m
+  Rendered topics/_text_keywords.html.erb (13.7ms)
+  Rendered topics/_navigation_link.html.erb (15.1ms)
+  [1m[35mTopicKeyword Load (0.3ms)[0m  SELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 19
+  Rendered topics/_text_keywords.html.erb (2.7ms)
+  Rendered topics/_navigation_link.html.erb (3.4ms)
+  [1m[36mTopicKeyword Load (0.2ms)[0m  [1mSELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 18[0m
+  Rendered topics/_text_keywords.html.erb (2.0ms)
+  Rendered topics/_navigation_link.html.erb (2.7ms)
+  [1m[35mTopicKeyword Load (0.3ms)[0m  SELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 17
+  Rendered topics/_text_keywords.html.erb (2.1ms)
+  Rendered topics/_navigation_link.html.erb (2.9ms)
+  [1m[36mTopicKeyword Load (0.3ms)[0m  [1mSELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 16[0m
+  Rendered topics/_text_keywords.html.erb (2.2ms)
+  Rendered topics/_navigation_link.html.erb (2.9ms)
+  Rendered topics/_navigation.html.erb (30.9ms)
+  Rendered /Users/hideaway/.rvm/gems/ruby-1.9.2-p320/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (1.3ms)
+  Rendered topics/_footer.html.erb (0.5ms)
+  Rendered topics/index.html.erb within layouts/application (105.2ms)
+  Rendered partials/external/_analytics.html.erb (0.3ms)
+  Rendered partials/modal/_share.html.erb (0.9ms)
+Completed 200 OK in 228ms (Views: 129.3ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-07-03 15:45:54 -0400
+Served asset /application.css - 304 Not Modified (27ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-07-03 15:45:54 -0400
+Served asset /application.js - 304 Not Modified (153ms)
+
+
+Started GET "/assets/feed-icon-small.png" for 127.0.0.1 at 2013-07-03 15:45:55 -0400
+Served asset /feed-icon-small.png - 304 Not Modified (55ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings-white.png" for 127.0.0.1 at 2013-07-03 15:45:55 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings-white.png - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-03 15:45:55 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings.png - 304 Not Modified (2ms)
+
+
+Started GET "/search.json?query=&hashtag=&range=4&page=1&topic=-2&type=2&sort=1&source=-1" for 127.0.0.1 at 2013-07-03 15:45:55 -0400
+Processing by TopicsController#search as JSON
+  Parameters: {"query"=>"", "hashtag"=>"", "range"=>"4", "page"=>"1", "topic"=>"-2", "type"=>"2", "sort"=>"1", "source"=>"-1"}
+  [1m[35mTopic Load (0.5ms)[0m  SELECT "topics".* FROM "topics" ORDER BY created_at DESC LIMIT 5
+
+***** Debugger requested, but was not available (ensure ruby-debug is listed in Gemfile/installed as gem): Start server with --debugger to enable *****
+
+  [1m[36mStory Load (9.8ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE (published_at >= '2013-06-26 19:45:55.424863' AND published_at <= '2013-07-04' AND (kind = '2')) ORDER BY external_popularity DESC, published_at DESC LIMIT 12 OFFSET 0[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "stories" WHERE (published_at >= '2013-06-26 19:45:55.424863' AND published_at <= '2013-07-04' AND (kind = '2'))
+Creating scope :page. Overwriting existing method Vote.page.
+  [1m[36mVote Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 238[0m
+Creating scope :page. Overwriting existing method Comment.page.
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 238
+  [1m[36mVote Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 239[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 239
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 236[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 236
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 228[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 228
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 234[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 234
+  [1m[36mVote Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 229[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 229
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 230[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 230
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 231[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 231
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 232[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 232
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 233[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 233
+  [1m[36mVote Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 235[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 235
+  [1m[36mVote Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 237[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 237
+Completed 200 OK in 115ms (Views: 50.7ms | ActiveRecord: 14.6ms)
+
+
+Started GET "/communities" for 127.0.0.1 at 2013-07-03 15:46:02 -0400
+Processing by CommunitiesController#index as HTML
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `authenticate_user!' for #<CommunitiesController:0x007f8e88197440>):
+  activesupport (3.2.13) lib/active_support/callbacks.rb:418:in `_run__4556662097838944404__process_action__2302208377279060450__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.13) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.13) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.13) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.13) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.13) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.13) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.13) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.13) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.13) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.13) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.13) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.13) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.13) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.13) lib/action_dispatch/routing/route_set.rb:612:in `call'
+  rack-pjax (0.7.0) lib/rack/pjax.rb:12:in `call'
+  omniauth (1.1.4) lib/omniauth/strategy.rb:184:in `call!'
+  omniauth (1.1.4) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.1.4) lib/omniauth/strategy.rb:184:in `call!'
+  omniauth (1.1.4) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.1.4) lib/omniauth/builder.rb:49:in `call'
+  galetahub-simple_captcha (0.1.5) lib/simple_captcha/middleware.rb:20:in `call'
+  warden (1.2.1) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.1) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.1) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/head.rb:14:in `call'
+  remotipart (1.0.5) lib/remotipart/middleware.rb:30:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.13) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.13) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `_run__2280372542679484571__call__2140924837873856287__callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.13) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.13) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.13) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.13) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.13) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.13) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.13) lib/action_dispatch/middleware/static.rb:63:in `call'
+  railties (3.2.13) lib/rails/engine.rb:479:in `call'
+  railties (3.2.13) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.13) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/hideaway/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /Users/hideaway/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /Users/hideaway/.rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+
+  Rendered /Users/hideaway/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/hideaway/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/hideaway/.rvm/gems/ruby-1.9.2-p320/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.2ms)
+Connecting to database specified by database.yml
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tag.page.
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tagging.page.
+Creating scope :page. Overwriting existing method Admin.page.
+
+
+Started GET "/communities" for 127.0.0.1 at 2013-07-03 15:54:25 -0400
+Processing by CommunitiesController#index as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2013-07-03 15:54:25 -0400
+Processing by SessionsController#new as HTML
+Creating scope :page. Overwriting existing method User.page.
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE (activated_at IS NOT NULL) ORDER BY created_at DESC[0m
+  Rendered partials/_new_users.html.erb (0.8ms)
+  Rendered partials/form/_signin.html.erb (1.8ms)
+  Rendered partials/form/_signup_short.html.erb (1.2ms)
+  Rendered partials/_footer.html.erb (0.7ms)
+  Rendered sessions/new.html.erb within layouts/application (16.3ms)
+  Rendered partials/external/_analytics.html.erb (0.3ms)
+  Rendered partials/modal/_share.html.erb (1.0ms)
+Completed 200 OK in 169ms (Views: 77.6ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-07-03 15:54:26 -0400
+Served asset /application.css - 304 Not Modified (27ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-07-03 15:54:26 -0400
+Served asset /application.js - 304 Not Modified (146ms)
+
+
+Started GET "/assets/sign-in-with-twitter.png" for 127.0.0.1 at 2013-07-03 15:54:26 -0400
+Served asset /sign-in-with-twitter.png - 200 OK (2ms)
+
+
+Started GET "/assets/feed-icon-small.png" for 127.0.0.1 at 2013-07-03 15:54:26 -0400
+Served asset /feed-icon-small.png - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings-white.png" for 127.0.0.1 at 2013-07-03 15:54:26 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings-white.png - 304 Not Modified (2ms)
+
+
+Started GET "/assets/facebook_signin.png" for 127.0.0.1 at 2013-07-03 15:54:26 -0400
+Served asset /facebook_signin.png - 200 OK (1ms)
+
+
+Started POST "/session/create" for 127.0.0.1 at 2013-07-03 15:55:49 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"L1LWCstpf5VqRsVhA5X894OqznN2AkagD8rLMwJsUw8=", "login"=>"hideaway", "password"=>"[FILTERED]", "remember_me"=>"", "redir"=>""}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE (login = 'hideaway' and activated_at IS NOT NULL) LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-03 15:55:49 -0400
+Processing by TopicsController#index as HTML
+Creating scope :page. Overwriting existing method Topic.page.
+  [1m[36mTopic Load (0.4ms)[0m  [1mSELECT "topics".* FROM "topics" ORDER BY created_at DESC LIMIT 5[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+Creating scope :page. Overwriting existing method Story.page.
+  [1m[36mStory Load (2.3ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE (published_at >= '2013-07-03' AND published_at <= '2013-07-04' AND kind = 4)[0m
+  Rendered topics/_type.html.erb (0.8ms)
+  Rendered topics/_type.html.erb (0.1ms)
+  Rendered topics/_source_filter.html.erb (0.8ms)
+  Rendered topics/_source_filter.html.erb (0.4ms)
+Creating scope :page. Overwriting existing method Follow.page.
+  [1m[35mFollow Load (0.1ms)[0m  SELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = 6 AND "follows"."follower_type" = 'User' AND "follows"."blocked" = 'f'
+  Rendered partials/_footer.html.erb (0.9ms)
+  Rendered partials/modal/_suggestion.html.erb (3.3ms)
+  Rendered topics/_sidebar.html.erb (105.7ms)
+  Rendered topics/_sort.html.erb (0.3ms)
+Creating scope :page. Overwriting existing method TopicKeyword.page.
+  [1m[36mTopicKeyword Load (0.4ms)[0m  [1mSELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 20[0m
+  Rendered topics/_text_keywords.html.erb (13.7ms)
+  Rendered topics/_navigation_link.html.erb (15.0ms)
+  [1m[35mTopicKeyword Load (0.3ms)[0m  SELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 19
+  Rendered topics/_text_keywords.html.erb (2.4ms)
+  Rendered topics/_navigation_link.html.erb (3.1ms)
+  [1m[36mTopicKeyword Load (0.3ms)[0m  [1mSELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 18[0m
+  Rendered topics/_text_keywords.html.erb (2.3ms)
+  Rendered topics/_navigation_link.html.erb (3.1ms)
+  [1m[35mTopicKeyword Load (0.3ms)[0m  SELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 17
+  Rendered topics/_text_keywords.html.erb (2.2ms)
+  Rendered topics/_navigation_link.html.erb (2.9ms)
+  [1m[36mTopicKeyword Load (0.4ms)[0m  [1mSELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 16[0m
+  Rendered topics/_text_keywords.html.erb (2.5ms)
+  Rendered topics/_navigation_link.html.erb (3.4ms)
+  Rendered topics/_navigation.html.erb (31.4ms)
+  Rendered /Users/hideaway/.rvm/gems/ruby-1.9.2-p320/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (1.9ms)
+  Rendered topics/_footer.html.erb (0.6ms)
+  Rendered topics/index.html.erb within layouts/application (194.7ms)
+  Rendered partials/external/_analytics.html.erb (0.0ms)
+  Rendered partials/modal/_share.html.erb (0.8ms)
+Completed 200 OK in 353ms (Views: 203.9ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-07-03 15:55:49 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-07-03 15:55:49 -0400
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/feed-icon-small.png" for 127.0.0.1 at 2013-07-03 15:55:49 -0400
+Served asset /feed-icon-small.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings-white.png" for 127.0.0.1 at 2013-07-03 15:55:49 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings-white.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-03 15:55:49 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings.png - 304 Not Modified (4ms)
+
+
+Started GET "/search.json?query=&hashtag=&range=4&page=1&topic=-2&type=2&sort=1&source=-1&user_id=6" for 127.0.0.1 at 2013-07-03 15:55:49 -0400
+Processing by TopicsController#search as JSON
+  Parameters: {"query"=>"", "hashtag"=>"", "range"=>"4", "page"=>"1", "topic"=>"-2", "type"=>"2", "sort"=>"1", "source"=>"-1", "user_id"=>"6"}
+  [1m[35mTopic Load (0.5ms)[0m  SELECT "topics".* FROM "topics" ORDER BY created_at DESC LIMIT 5
+
+***** Debugger requested, but was not available (ensure ruby-debug is listed in Gemfile/installed as gem): Start server with --debugger to enable *****
+
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mStory Load (9.2ms)[0m  SELECT "stories".* FROM "stories" WHERE (published_at >= '2013-06-26 19:55:49.891771' AND published_at <= '2013-07-04' AND (kind = '2')) ORDER BY external_popularity DESC, published_at DESC LIMIT 12 OFFSET 0
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "stories" WHERE (published_at >= '2013-06-26 19:55:49.891771' AND published_at <= '2013-07-04' AND (kind = '2'))[0m
+Creating scope :page. Overwriting existing method Vote.page.
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 238
+Creating scope :page. Overwriting existing method Comment.page.
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 238[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 239
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 239[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 236
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 236[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 228
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 228[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 234
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 234[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 229
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 229[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 230
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 230[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 231
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 231[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 232
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 232[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 233
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 233[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 235
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 235[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 237
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 237[0m
+Completed 200 OK in 161ms (Views: 100.6ms | ActiveRecord: 14.4ms)
+
+
+Started GET "/communities" for 127.0.0.1 at 2013-07-03 15:55:58 -0400
+Processing by CommunitiesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+Creating scope :page. Overwriting existing method Membership.page.
+Creating scope :page. Overwriting existing method Community.page.
+  [1m[36mCommunity Load (0.2ms)[0m  [1mSELECT DISTINCT "communities".* FROM "communities" INNER JOIN "memberships" ON "communities"."id" = "memberships"."community_id" WHERE "memberships"."user_id" = 6[0m
+  [1m[35mCommunity Load (0.2ms)[0m  SELECT DISTINCT "communities".* FROM "communities" INNER JOIN "memberships" ON "communities"."id" = "memberships"."community_id" WHERE "memberships"."user_id" = 6 AND "communities"."archived" = 'f'
+  Rendered communities/index.html.erb within layouts/application (1.9ms)
+  Rendered partials/external/_analytics.html.erb (0.0ms)
+  Rendered partials/modal/_share.html.erb (0.8ms)
+Completed 200 OK in 100ms (Views: 9.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-07-03 15:55:58 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-07-03 15:55:58 -0400
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings-white.png" for 127.0.0.1 at 2013-07-03 15:55:58 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings-white.png - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tag.page.
+Creating scope :page. Overwriting existing method ActsAsTaggableOn::Tagging.page.
+Creating scope :page. Overwriting existing method Admin.page.
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-03 16:47:05 -0400
+Processing by TopicsController#index as HTML
+Creating scope :page. Overwriting existing method Topic.page.
+  [1m[36mTopic Load (0.3ms)[0m  [1mSELECT "topics".* FROM "topics" ORDER BY created_at DESC LIMIT 5[0m
+Creating scope :page. Overwriting existing method User.page.
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+Creating scope :page. Overwriting existing method Story.page.
+  [1m[36mStory Load (1.3ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE (published_at >= '2013-07-03' AND published_at <= '2013-07-04' AND kind = 4)[0m
+  Rendered topics/_type.html.erb (0.6ms)
+  Rendered topics/_type.html.erb (0.1ms)
+  Rendered topics/_source_filter.html.erb (0.7ms)
+  Rendered topics/_source_filter.html.erb (0.3ms)
+Creating scope :page. Overwriting existing method Follow.page.
+  [1m[35mFollow Load (0.1ms)[0m  SELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = 6 AND "follows"."follower_type" = 'User' AND "follows"."blocked" = 'f'
+  Rendered partials/_footer.html.erb (1.1ms)
+  Rendered partials/modal/_suggestion.html.erb (3.4ms)
+  Rendered topics/_sidebar.html.erb (88.3ms)
+  Rendered topics/_sort.html.erb (0.3ms)
+Creating scope :page. Overwriting existing method TopicKeyword.page.
+  [1m[36mTopicKeyword Load (0.3ms)[0m  [1mSELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 20[0m
+  Rendered topics/_text_keywords.html.erb (13.2ms)
+  Rendered topics/_navigation_link.html.erb (14.7ms)
+  [1m[35mTopicKeyword Load (0.3ms)[0m  SELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 19
+  Rendered topics/_text_keywords.html.erb (2.4ms)
+  Rendered topics/_navigation_link.html.erb (3.0ms)
+  [1m[36mTopicKeyword Load (0.3ms)[0m  [1mSELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 18[0m
+  Rendered topics/_text_keywords.html.erb (2.4ms)
+  Rendered topics/_navigation_link.html.erb (3.2ms)
+  [1m[35mTopicKeyword Load (0.3ms)[0m  SELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 17
+  Rendered topics/_text_keywords.html.erb (2.3ms)
+  Rendered topics/_navigation_link.html.erb (3.0ms)
+  [1m[36mTopicKeyword Load (0.4ms)[0m  [1mSELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 16[0m
+  Rendered topics/_text_keywords.html.erb (2.4ms)
+  Rendered topics/_navigation_link.html.erb (3.3ms)
+  Rendered topics/_navigation.html.erb (30.9ms)
+  Rendered /Users/hideaway/.rvm/gems/ruby-1.9.2-p320/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (1.4ms)
+  Rendered topics/_footer.html.erb (0.6ms)
+  Rendered topics/index.html.erb within layouts/application (185.6ms)
+  Rendered partials/external/_analytics.html.erb (0.3ms)
+  Rendered partials/modal/_share.html.erb (1.7ms)
+Completed 200 OK in 408ms (Views: 210.1ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-07-03 16:47:05 -0400
+Served asset /application.css - 304 Not Modified (42ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-07-03 16:47:05 -0400
+Served asset /application.js - 304 Not Modified (171ms)
+
+
+Started GET "/assets/feed-icon-small.png" for 127.0.0.1 at 2013-07-03 16:47:06 -0400
+Served asset /feed-icon-small.png - 304 Not Modified (3ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings-white.png" for 127.0.0.1 at 2013-07-03 16:47:06 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings-white.png - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-03 16:47:06 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings.png - 304 Not Modified (2ms)
+
+
+Started GET "/search.json?query=&hashtag=&range=4&page=1&topic=-2&type=2&sort=1&source=-1&user_id=6" for 127.0.0.1 at 2013-07-03 16:47:06 -0400
+Processing by TopicsController#search as JSON
+  Parameters: {"query"=>"", "hashtag"=>"", "range"=>"4", "page"=>"1", "topic"=>"-2", "type"=>"2", "sort"=>"1", "source"=>"-1", "user_id"=>"6"}
+  [1m[35mTopic Load (0.4ms)[0m  SELECT "topics".* FROM "topics" ORDER BY created_at DESC LIMIT 5
+
+***** Debugger requested, but was not available (ensure ruby-debug is listed in Gemfile/installed as gem): Start server with --debugger to enable *****
+
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mStory Load (9.7ms)[0m  SELECT "stories".* FROM "stories" WHERE (published_at >= '2013-06-26 20:47:06.403225' AND published_at <= '2013-07-04' AND (kind = '2')) ORDER BY external_popularity DESC, published_at DESC LIMIT 12 OFFSET 0
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "stories" WHERE (published_at >= '2013-06-26 20:47:06.403225' AND published_at <= '2013-07-04' AND (kind = '2'))[0m
+Creating scope :page. Overwriting existing method Vote.page.
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 238
+Creating scope :page. Overwriting existing method Comment.page.
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 238[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 239
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 239[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 236
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 236[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 228
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 228[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 234
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 234[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 229
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 229[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 230
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 230[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 231
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 231[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 232
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 232[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 233
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 233[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 235
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 235[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 237
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 237[0m
+Completed 200 OK in 169ms (Views: 104.8ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/search.json?query=&hashtag=&range=4&page=1&topic=-2&type=1&sort=1&source=-1&user_id=6" for 127.0.0.1 at 2013-07-03 16:47:09 -0400
+Processing by TopicsController#search as JSON
+  Parameters: {"query"=>"", "hashtag"=>"", "range"=>"4", "page"=>"1", "topic"=>"-2", "type"=>"1", "sort"=>"1", "source"=>"-1", "user_id"=>"6"}
+  [1m[35mTopic Load (0.3ms)[0m  SELECT "topics".* FROM "topics" ORDER BY created_at DESC LIMIT 5
+
+***** Debugger requested, but was not available (ensure ruby-debug is listed in Gemfile/installed as gem): Start server with --debugger to enable *****
+
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mStory Load (4.2ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."kind" = 1 ORDER BY created_at DESC LIMIT 12 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 115
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 115[0m
+Completed 200 OK in 14ms (Views: 2.9ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/stories/115" for 127.0.0.1 at 2013-07-03 16:47:12 -0400
+Processing by StoriesController#show as HTML
+  Parameters: {"id"=>"115"}
+  [1m[35mStory Load (0.4ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."id" = ? LIMIT 1  [["id", "115"]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."story_id" IN (115)[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mStory Load (4.1ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE (user_id = 6) ORDER BY published_at DESC LIMIT 5[0m
+  [1m[35mStory Load (4.1ms)[0m  SELECT "stories".* FROM "stories" WHERE (kind = 1 and user_id != 6) ORDER BY published_at DESC LIMIT 5
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  UPDATE "stories" SET "views" = 1, "updated_at" = '2013-07-03 20:47:12.346565' WHERE "stories"."id" = 115
+[paperclip] Saving attachments.
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mVote Load (0.1ms)[0m  SELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 115
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mStory Load (0.3ms)[0m  SELECT "stories".* FROM "stories" WHERE "stories"."related_story_id" = 115
+  [1m[36mTopic Load (0.2ms)[0m  [1mSELECT "topics".* FROM "topics" WHERE "topics"."id" = -1 LIMIT 1[0m
+  Rendered stories/_header.html.erb (3.3ms)
+  Rendered stories/_meta.html.erb (59.3ms)
+  Rendered partials/share/_google_plusone_button.html.erb (0.3ms)
+  Rendered partials/share/_facebook_like_button.html.erb (0.2ms)
+  Rendered partials/modal/_email.html.erb (2.3ms)
+  Rendered stories/_share.html.erb (5.5ms)
+  Rendered stories/_body.html.erb (11.6ms)
+  Rendered stories/_related_posts.html.erb (0.7ms)
+  Rendered stories/_likers.html.erb (0.4ms)
+  Rendered stories/_comments.html.erb (0.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  Rendered stories/_sidebar_story.html.erb (3.6ms)
+  [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = 115 AND "taggings"."taggable_type" = 'Story' AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m
+  Rendered stories/_sidebar.html.erb (79.9ms)
+  Rendered stories/_footer.html.erb (0.7ms)
+  Rendered stories/show.html.erb within layouts/application (171.5ms)
+  Rendered partials/share/_opengraph_meta.html.erb (1.2ms)
+  Rendered partials/external/_analytics.html.erb (0.0ms)
+  Rendered partials/modal/_share.html.erb (0.9ms)
+Completed 200 OK in 227ms (Views: 182.3ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-07-03 16:47:12 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-07-03 16:47:12 -0400
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings-white.png" for 127.0.0.1 at 2013-07-03 16:47:12 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings-white.png - 304 Not Modified (0ms)
+
+
+Started DELETE "/stories/115" for 127.0.0.1 at 2013-07-03 16:47:16 -0400
+Processing by StoriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"L1LWCstpf5VqRsVhA5X894OqznN2AkagD8rLMwJsUw8=", "id"=>"115"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mStory Load (0.1ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."id" = ? LIMIT 1[0m  [["id", "115"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."id" = ? LIMIT 1[0m  [["id", "115"]]
+  [1m[35mTopic Load (0.1ms)[0m  SELECT "topics".* FROM "topics" WHERE "topics"."id" = -1 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 115
+Creating scope :page. Overwriting existing method ActivityItem.page.
+  [1m[36mActivityItem Load (0.1ms)[0m  [1mSELECT "activity_items".* FROM "activity_items" WHERE "activity_items"."story_id" = 115[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "activity_items" WHERE "activity_items"."id" = ?  [["id", 1]]
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 115[0m
+[paperclip] Scheduling attachments for deletion.
+  [1m[35mActsAsTaggableOn::Tagging Load (0.1ms)[0m  SELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = 115 AND "taggings"."taggable_type" = 'Story'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "taggings"."id" AS t0_r0, "taggings"."tag_id" AS t0_r1, "taggings"."taggable_id" AS t0_r2, "taggings"."taggable_type" AS t0_r3, "taggings"."tagger_id" AS t0_r4, "taggings"."tagger_type" AS t0_r5, "taggings"."context" AS t0_r6, "taggings"."created_at" AS t0_r7, "tags"."id" AS t1_r0, "tags"."name" AS t1_r1 FROM "taggings" LEFT OUTER JOIN "tags" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = 115 AND "taggings"."taggable_type" = 'Story' AND (taggings.tag_id = tags.id AND taggings.context = 'tags')[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "stories" WHERE "stories"."id" = ?  [["id", 115]]
+[paperclip] Deleting attachments.
+[paperclip] deleting /Users/hideaway/Works/Summer_Work/Summer2013_VTS/Colloki_Project/colloki-master/public/system/images/115/original/vlcsnap-2013-02-26-11h35m36s23.png
+[paperclip] deleting /Users/hideaway/Works/Summer_Work/Summer2013_VTS/Colloki_Project/colloki-master/public/system/images/115/thumb/vlcsnap-2013-02-26-11h35m36s23.png
+[paperclip] deleting /Users/hideaway/Works/Summer_Work/Summer2013_VTS/Colloki_Project/colloki-master/public/system/images/115/medium/vlcsnap-2013-02-26-11h35m36s23.png
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 41ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-03 16:47:16 -0400
+Processing by TopicsController#index as HTML
+  [1m[35mTopic Load (0.4ms)[0m  SELECT "topics".* FROM "topics" ORDER BY created_at DESC LIMIT 5
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mStory Load (0.6ms)[0m  SELECT "stories".* FROM "stories" WHERE (published_at >= '2013-07-03' AND published_at <= '2013-07-04' AND kind = 4)
+  Rendered topics/_type.html.erb (0.1ms)
+  Rendered topics/_type.html.erb (0.1ms)
+  Rendered topics/_source_filter.html.erb (0.5ms)
+  Rendered topics/_source_filter.html.erb (0.5ms)
+  [1m[36mFollow Load (0.2ms)[0m  [1mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = 6 AND "follows"."follower_type" = 'User' AND "follows"."blocked" = 'f'[0m
+  Rendered partials/_footer.html.erb (0.6ms)
+  Rendered partials/modal/_suggestion.html.erb (1.1ms)
+  Rendered topics/_sidebar.html.erb (9.1ms)
+  Rendered topics/_sort.html.erb (0.0ms)
+  [1m[35mTopicKeyword Load (0.3ms)[0m  SELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 20
+  Rendered topics/_text_keywords.html.erb (2.6ms)
+  Rendered topics/_navigation_link.html.erb (3.4ms)
+  [1m[36mTopicKeyword Load (0.5ms)[0m  [1mSELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 19[0m
+  Rendered topics/_text_keywords.html.erb (3.6ms)
+  Rendered topics/_navigation_link.html.erb (4.5ms)
+  [1m[35mTopicKeyword Load (0.3ms)[0m  SELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 18
+  Rendered topics/_text_keywords.html.erb (2.5ms)
+  Rendered topics/_navigation_link.html.erb (3.2ms)
+  [1m[36mTopicKeyword Load (0.3ms)[0m  [1mSELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 17[0m
+  Rendered topics/_text_keywords.html.erb (2.2ms)
+  Rendered topics/_navigation_link.html.erb (2.9ms)
+  [1m[35mTopicKeyword Load (0.3ms)[0m  SELECT "topic_keywords".* FROM "topic_keywords" WHERE "topic_keywords"."topic_id" = 16
+  Rendered topics/_text_keywords.html.erb (2.3ms)
+  Rendered topics/_navigation_link.html.erb (3.0ms)
+  Rendered topics/_navigation.html.erb (20.6ms)
+  Rendered /Users/hideaway/.rvm/gems/ruby-1.9.2-p320/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (0.8ms)
+  Rendered topics/_footer.html.erb (0.2ms)
+  Rendered topics/index.html.erb within layouts/application (37.5ms)
+  Rendered partials/external/_analytics.html.erb (0.0ms)
+  Rendered partials/modal/_share.html.erb (1.3ms)
+Completed 200 OK in 55ms (Views: 46.5ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2013-07-03 16:47:16 -0400
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2013-07-03 16:47:16 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/feed-icon-small.png" for 127.0.0.1 at 2013-07-03 16:47:16 -0400
+Served asset /feed-icon-small.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings-white.png" for 127.0.0.1 at 2013-07-03 16:47:16 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings-white.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/twitter/bootstrap/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-03 16:47:16 -0400
+Served asset /twitter/bootstrap/glyphicons-halflings.png - 304 Not Modified (0ms)
+
+
+Started GET "/search.json?query=&hashtag=&range=4&page=1&topic=-2&type=2&sort=1&source=-1&user_id=6" for 127.0.0.1 at 2013-07-03 16:47:16 -0400
+Processing by TopicsController#search as JSON
+  Parameters: {"query"=>"", "hashtag"=>"", "range"=>"4", "page"=>"1", "topic"=>"-2", "type"=>"2", "sort"=>"1", "source"=>"-1", "user_id"=>"6"}
+  [1m[36mTopic Load (0.6ms)[0m  [1mSELECT "topics".* FROM "topics" ORDER BY created_at DESC LIMIT 5[0m
+
+***** Debugger requested, but was not available (ensure ruby-debug is listed in Gemfile/installed as gem): Start server with --debugger to enable *****
+
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mStory Load (9.6ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE (published_at >= '2013-06-26 20:47:17.013828' AND published_at <= '2013-07-04' AND (kind = '2')) ORDER BY external_popularity DESC, published_at DESC LIMIT 12 OFFSET 0[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "stories" WHERE (published_at >= '2013-06-26 20:47:17.013828' AND published_at <= '2013-07-04' AND (kind = '2'))
+  [1m[36mVote Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 238[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 238
+  [1m[36mVote Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 239[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 239
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 236[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 236
+  [1m[36mVote Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 228[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 228
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 234[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 234
+  [1m[36mVote Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 229[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 229
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 230[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 230
+  [1m[36mVote Load (0.2ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 231[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 231
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 232[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 232
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 233[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 233
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 235[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 235
+  [1m[36mVote Load (0.1ms)[0m  [1mSELECT "votes".* FROM "votes" WHERE "votes"."story_id" = 237[0m
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."story_id" = 237
+Completed 200 OK in 59ms (Views: 35.2ms | ActiveRecord: 14.7ms)
+
+
+Started GET "/search.json?query=&hashtag=&range=4&page=1&topic=-2&type=1&sort=1&source=-1&user_id=6" for 127.0.0.1 at 2013-07-03 16:47:24 -0400
+Processing by TopicsController#search as JSON
+  Parameters: {"query"=>"", "hashtag"=>"", "range"=>"4", "page"=>"1", "topic"=>"-2", "type"=>"1", "sort"=>"1", "source"=>"-1", "user_id"=>"6"}
+  [1m[36mTopic Load (0.3ms)[0m  [1mSELECT "topics".* FROM "topics" ORDER BY created_at DESC LIMIT 5[0m
+
+***** Debugger requested, but was not available (ensure ruby-debug is listed in Gemfile/installed as gem): Start server with --debugger to enable *****
+
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1
+  [1m[36mStory Load (5.1ms)[0m  [1mSELECT "stories".* FROM "stories" WHERE "stories"."kind" = 1 ORDER BY created_at DESC LIMIT 12 OFFSET 0[0m
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/search.json?query=&hashtag=&range=4&page=1&topic=-2&type=7&sort=1&source=-1&user_id=6" for 127.0.0.1 at 2013-07-03 16:47:27 -0400
+Processing by TopicsController#search as JSON
+  Parameters: {"query"=>"", "hashtag"=>"", "range"=>"4", "page"=>"1", "topic"=>"-2", "type"=>"7", "sort"=>"1", "source"=>"-1", "user_id"=>"6"}
+  [1m[35mTopic Load (0.3ms)[0m  SELECT "topics".* FROM "topics" ORDER BY created_at DESC LIMIT 5
+
+***** Debugger requested, but was not available (ensure ruby-debug is listed in Gemfile/installed as gem): Start server with --debugger to enable *****
+
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "6"]]
+  [1m[36mFollow Load (0.1ms)[0m  [1mSELECT "follows".* FROM "follows" WHERE "follows"."follower_id" = 6 AND "follows"."follower_type" = 'User' AND "follows"."blocked" = 'f'[0m
+  [1m[35mVote Load (0.2ms)[0m  SELECT "votes".* FROM "votes" WHERE (user_id IN (NULL)) ORDER BY created_at DESC LIMIT 30 OFFSET 0
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.9ms)

@@ -1,7 +1,7 @@
 class Community < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
-  scope :archived_tags, :conditions => {:archived => true}
-  scope :current_tags, :conditions => {:archived => false}
+  scope :archived_communities, :conditions => {:archived => true}
+  scope :current_communities, :conditions => {:archived => false}
 
   def self.intersection(story)
   	intersection_list = []

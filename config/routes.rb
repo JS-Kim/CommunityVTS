@@ -23,7 +23,7 @@ Colloki::Application.routes.draw do
   resources :notifications, :ballots
   resources :communities do
     collection do
-      put 'tagaction'
+      put 'communityaction'
     end
   end
   resources :cvotes do
