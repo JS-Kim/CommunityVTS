@@ -2,6 +2,15 @@
 module ApplicationHelper
   include ActsAsTaggableOn::TagsHelper
 
+  #KJS
+  def title(page_title)
+    content_for(:title) { page_title }
+  end
+
+  def format_ballot_date(date)
+    date.strftime("%b %e")
+  end
+  
   def sort_selected?(sort_name)
    params[:sort].to_s == sort_name.to_s
   end

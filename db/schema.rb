@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130703161841) do
+ActiveRecord::Schema.define(:version => 20130704063823) do
 
   create_table "activity_items", :force => true do |t|
     t.integer  "user_id",                    :null => false
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20130703161841) do
     t.boolean  "voteable"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.boolean  "selected"
   end
 
   create_table "cvotes", :force => true do |t|
@@ -109,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20130703161841) do
     t.integer  "user_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.boolean  "selected"
   end
 
   add_index "memberships", ["community_id"], :name => "index_memberships_on_community_id"

@@ -6,7 +6,7 @@ gem 'will_paginate', '~> 3.0.0'
 gem 'dynamic_form'
 gem 'acts-as-taggable-on', '~>2.1.0' # https://github.com/mbleigh/acts-as-taggable-on
 gem 'gravatar-ultimate'
-
+gem 'mongrel'
 # Authentication
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
@@ -31,6 +31,7 @@ gem 'uglifier'
 gem 'therubyracer'
 gem 'less-rails'
 gem 'less-rails-bootstrap'
+gem 'tiny_mce' #KJS: from CMail
 
 #Debugger
 group :development do

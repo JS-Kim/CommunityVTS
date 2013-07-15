@@ -50,10 +50,6 @@ $(function() {
 
       "map": {
         id: 9
-      },
-      "community": {
-        id: 10,
-        header: "Updated Posts in your communities"
       }
     },
 
@@ -135,7 +131,6 @@ $(function() {
         $twitter: this.$(".filter-chatter-twitter"),
         $facebook: this.$(".filter-chatter-facebook"),
         $following: this.$(".filter-following"),
-        $community: this.$(".filter-community"),
         $topic: this.$(".filter-topic"),
         $date: this.$(".filter-date"),
         $search: this.$(".filter-search"),
@@ -205,7 +200,6 @@ $(function() {
         this.filters.$news.show();
         this.filters.$chatter.hide();
         this.filters.$following.hide();
-        this.filters.$community.hide();
         this.filters.$events.hide();
         this.filters.$map.hide();
         this.filters.$search.show();
@@ -244,13 +238,6 @@ $(function() {
         } else {
           this.filters.$following.hide();
         }
-
-        if (this.type == this.types["community"].id) {
-          this.filters.$community.show();
-        } else {
-          this.filters.$community.hide();
-        }
-
         if (this.type == this.types["twitter"].id ||
           this.type == this.types["facebook"].id) {
 
@@ -352,8 +339,6 @@ $(function() {
         text = this.types["likes"].header;
       } else if (this.type == this.types["following"].id) {
         text = this.types["following"].header;
-      } else if (this.type == this.types["community"].id) {
-        text = this.types["community"].header;
       } else if (this.type == this.types["rss"].id) {
 
         if (this.dateRange == 4) {

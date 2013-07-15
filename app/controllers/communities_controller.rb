@@ -1,5 +1,37 @@
 class CommunitiesController < ApplicationController
 
+  def update_selections
+    #check_box handler
+    if params[:unchecked_ids]
+      unselected_ids = params[:unchecked_ids].collect {|id| id.to_i} 
+      if unselected_ids
+        unselected_ids.each do |id|
+          #@community = current_user.communities.find_by_id(id) #KJS: doens't work properly.
+          @unselectedmemberships = Membership.find(:all, :conditions => ["community_id = " + id.to_s + " AND " + "user_id = " + current_user.id.to_s])
+          @unselectedmemberships.each do |m|                  
+            Membership.unselect_communities(m)
+          end 
+        end
+        flash[:notice] = "Your selection was successfull."
+      end
+    end
+    if params[:community_ids]
+      selected_ids = params[:community_ids].collect {|id| id.to_i} 
+            
+      if selected_ids
+        selected_ids.each do |id|
+          #@community = current_user.communities.find_by_id(id) #KJS: doens't work properly. find all communities.
+          @selectedmemberships = Membership.find(:all, :conditions => ["community_id = " + id.to_s + " AND " + "user_id = " + current_user.id.to_s])
+          @selectedmemberships.each do |m|                  
+            Membership.select_communities(m)
+          end       
+          flash[:notice] = "Your selection was successfull."
+        end
+      end
+    end
+    redirect_to(:action => "index")
+    return
+  end
   # GET /communities
   # GET /communities.json
   def index
@@ -14,28 +46,39 @@ class CommunitiesController < ApplicationController
         @communities = current_user.communities.current_communities
       elsif @filter == "archived"
         @communities = current_user.communities.archived_communities
-    else
-      @communities = []
-    end
+      else
+        @communities = []
+      end
 
-    @myCommunities = current_user.communities.autocomplete(params[:term])
-    
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json {
-        @communityNames = []
-        @myCommunities.each do |c|
-          @communityNames << c.name
-        end
-        render :json => @communityNames
-      }
-    end
+      @myCommunities = current_user.communities.autocomplete(params[:term])
+      @selected = []
+      @myCommunities.each do |c|
+       
+      @membership = Membership.find(:first, :conditions => ["community_id = " + c.id.to_s + " AND " + "user_id = " + current_user.id.to_s])
+      @selected << Membership.selected?(@membership)
+        #@sel = Membership.selected?(@membership)
+        #flash[:notice] = "selected:" + @sel.to_s
+      end
+     
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json {
+          @communityNames = []
+          @selected = []
+          @myCommunities.each do |c|
+            @communityNames << c.name
+          end
+          # render :json => { :communityNames => @communityNames, :selected => @selected }
+          render :json => @communityNames
+        }
+      end
+      
     else
       flash[:alert] = "You need to be logged in to list your communities."
       redirect_to login_url
     end  
   end
-
+  
   # GET /communities/1
   # GET /communities/1.json
   def show
@@ -242,7 +285,7 @@ class CommunitiesController < ApplicationController
 
   #KJS: for 'community' concept
   def communityaction 
-    case params[:tagaction]
+    case params[:theaction]
       when 'archive'
         Community.update_all(["archived=?", true], :id => params[:community_ids])
       when 'restore'

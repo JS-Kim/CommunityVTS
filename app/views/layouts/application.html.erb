@@ -24,8 +24,9 @@
     <% end %>
   </title>
 
-  <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag "main", "application" %>
   <%= javascript_include_tag "application" %>
+   <%= include_tiny_mce_if_needed %>
 
   <%= render :partial => 'partials/external/analytics' %>
 </head>
@@ -98,12 +99,14 @@
                     <li><%= link_to "Log Out", logout_url %></li>
                   </ul>
                 </li>
+                <li>
+                  <%= link_to "Community", "/communities" %>
+                </li>
               <% else %>
                 <li><%= link_to "Log In", login_url %></li>
               <% end %>
             </ul>
           </div>
-
           <div class="pull-left hidden-phone hidden-tablet" id="navbar-share">
             <a data-toggle="modal" href="#navbar-share-modal" class="btn btn-small btn-success">
               <i class="icon-pencil icon-white"></i>

@@ -23,6 +23,7 @@ Colloki::Application.routes.draw do
   resources :notifications, :ballots
   resources :communities do
     collection do
+      put 'update_selections'
       put 'communityaction'
     end
   end

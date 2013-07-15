@@ -32,18 +32,12 @@
       <li>
         <a title="Stories liked by people you are following" data-placement="bottom" class="has-tooltip type" href="#" data-value="7" data-user-id="<%= current_user.id %>"><i class='icon-user'></i> Following</a>
       </li>
-      <li>
-        <a title="Communities you exclusively share sensitive information" data-placement="bottom" class="has-tooltip type" href="#" data-value="10" data-user-id="<%= current_user.id %>"><i class='icon-asterisk'></i> Community</a>
-      </li>
     <% else %>
       <li class="disabled">
         <a title="Log In to like stories" data-placement="bottom" class="has-tooltip"><i style="opacity: 0.5" class='icon-star'></i> Likes</a>
       </li>
       <li class="disabled">
         <a title="Log In to follow people" data-placement="bottom" class="has-tooltip"><i style="opacity: 0.5" class='icon-user'></i> Following</a>
-      </li>
-      <li class="disabled">
-        <a title="Log In to view communities" data-placement="bottom" class="has-tooltip"><i style="opacity: 0.5" class='icon-asterisk'></i> Community</a>
       </li>
     <% end %>
 

@@ -1,30 +1,21 @@
-<p id="notice"><%= notice %></p>
+<% title "View Community" %>
+<%= render :partial => "communities/show/buttons" %>
+<div id="email_header">
+  <strong><%= @community.name %></strong>
+</div>
+<div id="show_content">
+  <h3>Members</h3>
+  <ul class="tag-show-users">
+    <% @community.users.each do |u| %>
+        <li><%= u.login %> (<%= u.realname %>) : <%= u.email %></li>
+    <% end %>
+  </ul>
 
-<p>
-  <b>Name:</b>
-  <%= @community.name %>
-</p>
-
-<p>
-  <b>Description:</b>
+  <h3>Description</h3>
   <%= @community.description %>
-</p>
+</div>
 
-<p>
-  <b>Approved:</b>
-  <%= @community.approved %>
-</p>
+<div id="bottom_buttons">
+  <%= render :partial => "communities/show/buttons" %>
+</div>
 
-<p>
-  <b>Archived:</b>
-  <%= @community.archived %>
-</p>
-
-<p>
-  <b>Voteable:</b>
-  <%= @community.voteable %>
-</p>
-
-
-<%= link_to 'Edit', edit_community_path(@community) %> |
-<%= link_to 'Back', communities_path %>

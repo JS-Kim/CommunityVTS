@@ -1,0 +1,9 @@
+insert into annotations (community_id, story_id, created_at, updated_at) values (5, 231, datetime('now'), datetime('now'));
+insert into annotations (community_id, story_id, created_at, updated_at) values (5, 232, datetime('now'), datetime('now'));
+insert into annotations (community_id, story_id, created_at, updated_at) values (5, 234, datetime('now'), datetime('now'));
+insert into annotations (community_id, story_id, created_at, updated_at) values (5, 235, datetime('now'), datetime('now'));
+insert into annotations (community_id, story_id, created_at, updated_at) values (5, 236, datetime('now'), datetime('now'));
+insert into annotations (community_id, story_id, created_at, updated_at) values (5, 237, datetime('now'), datetime('now'));
+insert into annotations (community_id, story_id, created_at, updated_at) values (5, 238, datetime('now'), datetime('now'));
+insert into annotations (community_id, story_id, created_at, updated_at) values (5, 239, datetime('now'), datetime('now'));
+insert into annotations (community_id, story_id, created_at, updated_at) values (5, 240, datetime('now'), datetime('now'));

@@ -70,6 +70,7 @@ class TopicsController < ApplicationController
   end
 
   def search
+    #User Blogs
     debugger
     
     gon.app_url = root_url
@@ -82,6 +83,7 @@ class TopicsController < ApplicationController
   end
 
   def search_stories
+
     @stories = Story.search_stories(params)
     respond_to do |format|
       format.json { render :json => @stories, :include => [:votes, :comments, :user],
@@ -106,6 +108,7 @@ class TopicsController < ApplicationController
   end
 
   def search_topic
+
     @topic = Topic.find(params[:id])
     respond_to do |format|
       format.json {

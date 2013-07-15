@@ -9,8 +9,7 @@ class Story < ActiveRecord::Base
   Events = 6
   Following = 7
   ByUser = 8
-  Community = 10
-
+ 
   # Facebook Post Types
   FacebookTypeStatus = 0
   FacebookTypeLink = 1
@@ -179,10 +178,37 @@ end
         story.user_email_hash = Digest::MD5.hexdigest(story.user.email)
       end
     end
-
+    
     return stories
   end
+  #KJS: applying the selected communities to display stories
+  def self.filter_community(stories, params)
 
+    community_ids = []
+    
+    if params.has_key?(:user_id) #if logged in
+      user = User.find(params[:user_id])
+      selectedmemberships = Membership.find(:all, :conditions => {:selected => true, :user_id => user.id} )
+      for membership in selectedmemberships
+        community_ids.push(membership.community_id)
+      end
+    else
+      public_id = Community.find(:first, :conditions => "name = 'Public'")
+      community_ids.push(public_id)
+    end
+
+    annotations = Annotation.find(:all, :conditions => ["community_id IN (?)", community_ids])
+    sel_stories = []
+    for annotation in annotations
+      sel_stories << Story.find(:first, :conditions => "id = " + annotation.story_id.to_s)
+      # if !sel_stories.index(annotation.story)
+      #   sel_stories.push(annotation.story)
+      # end
+    end 
+    #filtered_stories = sel_stories & stories
+    stories = sel_stories & stories
+    return stories
+  end
   # Get the stories for the RSS feed (excluding Twitter and Facebook posts)
   def self.latest_for_rss
     find :all,
@@ -205,7 +231,11 @@ end
       :limit => params[:limit].to_i,
       :order => "created_at DESC",
       :conditions => conditions);
+    
+    #puts "self.search_stories: calling filter_community"
     self.add_metadata(stories)
+    self.filter_community(stories, params)
+    
   end
 
   def self.search_twitter(params)
@@ -222,6 +252,9 @@ end
       :limit => params[:limit].to_i,
       :order => "created_at DESC",
       :conditions => conditions);
+
+    #puts "self.search_twitter: calling filter_community"
+    self.filter_community(stories, params)
   end
 
   def self.search_facebook(params)
@@ -238,6 +271,9 @@ end
       :limit => params[:limit].to_i,
       :order => "created_at DESC",
       :conditions => conditions);
+
+    #puts "self.search_facebook: calling filter_community"
+    self.filter_community(stories, params)
   end
 
   # TODO(ankit): Each of these should be a separate API, instead of munging
@@ -286,20 +322,12 @@ end
         :order => "created_at DESC",
         :conditions => {:kind => Story::Post});
 
-    #KJS User Shared Posts : community based posts later
-    elsif params[:type].to_i == Story::Post
-      stories = Story.paginate(
-        :page => params[:page],
-        :order => "created_at DESC",
-        :conditions => {:kind => Story::Post});
-
     # Posts by a specific user
     elsif params[:type].to_i == Story::ByUser
       stories = Story.paginate(
         :page => params[:page],
         :order => "created_at DESC",
         :conditions => {:user_id => params[:user_id]});
-
     else
       # Search
       query = params[:query]
@@ -385,9 +413,12 @@ end
         :page => params[:page],
         :conditions => conditions,
         :order => order)
+      
     end
-
-    self.add_metadata(stories)
+    #puts("self.search: calling filter_community")
+    #self.add_metadata(stories)
+    self.filter_community(stories, params)
+    
   end
 
   # Get all the stories written by the specified user

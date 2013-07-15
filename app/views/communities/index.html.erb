@@ -1,31 +1,31 @@
-<h1>Listing communities</h1>
+<% title "Your Communities" %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Approved</th>
-    <th>Archived</th>
-    <th>Voteable</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<% if !@communities.empty? %>
+  <table width="100%" class="tbl">
+    
+      <%= form_tag update_selections_communities_path %>
+      <% @communities.zip(@selected).each do |community, sel| %>
+        <tr>
+          <td width="30px">
+            <%= hidden_field_tag "unchecked_ids[]", community.id %>
+            <%= check_box_tag "community_ids[]", community.id, sel ? true : false %>
+          </td>
+          <td onclick="location.href='<%= community_path(community) %>'" width="200px"><%= community.name %></td>
+          <td onclick="location.href='<%= community_path(community) %>'" class="overflow"><%= community.description %></td>
+          <td onclick="location.href='<%= community_path(community) %>'" width="120px" id="index_right_field"><%= community.users.count %> Members</td>
+        </tr>
+      <% end %>
+      <%= submit_tag 'Select your communities' %>
+  
+  </table>
 
-<% @communities.each do |community| %>
-  <tr>
-    <td><%= community.name %></td>
-    <td><%= community.description %></td>
-    <td><%= community.approved %></td>
-    <td><%= community.archived %></td>
-    <td><%= community.voteable %></td>
-    <td><%= link_to 'Show', community %></td>
-    <td><%= link_to 'Edit', edit_community_path(community) %></td>
-    <td><%= link_to 'Destroy', community, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% else %>
+  <div class="no_content">
+    <% if @filter == 'archived' %>
+      You have no archived communities. <br />
+    <% else %>
+      You are not associated with any communities. <br />
+      <%= link_to "Compose a community", new_community_path %>
+    <% end %>
+  </div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Community', new_community_path %>

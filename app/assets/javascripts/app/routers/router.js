@@ -15,7 +15,6 @@ $(function() {
       "likes": "likes",
       "following": "following",
       "shared": "shared",
-      "community": "community",
 
       ":range/chatter": "chatter",
       ":range/chatter/:type": "chatter",
@@ -196,22 +195,6 @@ $(function() {
       }
     },
 
-    community: function(dateRange) {
-      if (this.view) {
-        this.view.dateRange = this.dateRangeInt(dateRange);
-        this.view.showType(10);
-      } else {
-        this.view = new window.StoryListView({
-          el: this.$el,
-          router: this,
-          user: this.user,
-          viewer: this.viewer,
-          type: 10,
-          dateRange: this.dateRangeInt(dateRange)
-        });
-      }
-    },
-
     shared: function(dateRange) {
       if (this.view) {
         this.view.dateRange = this.dateRangeInt(dateRange);
@@ -306,8 +289,6 @@ $(function() {
         route += "/following";
       } else if (view.type == 9) {
         route += "/map";
-      } else if (view.type == 10) {
-        route += "/community";
       } else {
         route += "/news";
       }

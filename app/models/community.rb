@@ -27,11 +27,12 @@ def self.autocomplete(search)
     find(:all, :conditions => ['name LIKE ?', "#{search}%"])
   else
     find(:all)
-  end
+  end 
 end
 
   has_many :memberships
   has_many :users, :through => :memberships, :uniq => true
+  accepts_nested_attributes_for :memberships #KJS
 
   has_many :annotations
   has_many :stories, :through => :annotations, :uniq => true
