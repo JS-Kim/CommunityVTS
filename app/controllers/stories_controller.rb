@@ -91,6 +91,8 @@ class StoriesController < ApplicationController
 
   # GET /stories/new
   def new
+    debugger
+    puts "*************  stories_controller: new"
     if not logged_in?
       flash[:alert] = "You need to be logged in to post a photo."
       redirect_to login_url
@@ -106,6 +108,7 @@ class StoriesController < ApplicationController
 
   # GET /stories/1/edit
   def edit
+    
     if not logged_in?
       flash[:alert] = "You need to login to edit stories."
       redirect_to :back
@@ -113,14 +116,20 @@ class StoriesController < ApplicationController
       flash[:alert] = "You need to be the author of the story to edit it."
       redirect_to :back
     else
+      #debugger
+      puts "*************  stories_controller: edit"
       @story = Story.find(params[:id])
       @page_title = "Edit " + @story.title
+      #KJS
+      gon.story = @story
     end
   end
 
   # POST /stories
   # POST /stories.xml
   def create
+    debugger
+    puts "******************    stories_controller: create"
     @topic = Topic.find(params[:topic_id])
     @story = @topic.stories.build(params[:story])
     @story.views = 0

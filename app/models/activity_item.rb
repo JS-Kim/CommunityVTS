@@ -7,6 +7,8 @@ class ActivityItem < ActiveRecord::Base
   belongs_to :comment
   belongs_to :vote
 
+  belongs_to :community #KJS. July 16, 2013
+
   # Constant Definitions
   # Note: DO NOT change the numeric values. If you do, reset the database, because the bindings would be all wrong.
   # Ideally, just create a new type with a new number, and add its representation to the sentence definition below.

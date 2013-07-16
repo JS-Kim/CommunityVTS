@@ -1,37 +1,57 @@
-<%=render :partial => "topics/header", :locals => {:topic => @story.topic}%>
-<br>
-<%if @story.kind ==  Story::Post%>
-<h3>Edit Post</h3>
-<%else%>
-<h3>Edit Link</h3>
-<%end%>
 
-<%= form_for(@story) do |f| %>
-  <%= f.error_messages %>
-
-  <%if @story.kind ==  Story::Link%>
-  <p>
-    <%= f.label :url %><br />
-    <%= f.text_field :url, :class=>'url_input' %>
-  </p>
-  <%end%>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title, :class=>'title_input' %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description, :class => 'rich_text_editor'%>
-  </p>
-  <p>
-    <%= f.label :tag_list %> (separate with ,)<br />
-    <%= f.text_field :tag_list%>
-  </p>
-  <p>
-    <button type="submit" class="positive">
-    <%= image_tag "tick.png" %>
-      Update
-    </button>
-  </p>
-<% end %>
-<br><br>
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">&times;</a>
+    <h3>Edit a Blog Post</h3>
+  </div>
+  <% if logged_in? %>
+    <%= form_for(@story) do |f| %>
+      <div class="modal-body">
+        <p>
+          <div class="control-group">
+            <div class="controls">
+              <%= f.text_field :title,
+                :class => "span4"
+              %>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <%= f.text_area :description,
+                :rows => 10,
+                :class => "span5" %>
+            </div>
+          </div>
+          <div class="control-group">
+            <label>
+              <strong>Edit Photo</strong>
+            </label>
+            <div class="controls">
+             <% if @story.image_exists? %>
+             <%= link_to image_tag(@story.image.url(:thumb), :class=>'sidebar-story-thumb'), @story %>
+              <%= f.text_field :image_file_name %>
+              <%= f.file_field :photo, @image %>
+             <% else %>
+              <%= f.file_field :photo, :class => "choose-photo" %>
+              <%end%>
+            </div>
+          </div>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" data-dismiss="modal" class="btn">Cancel</a>
+        <button type="submit" class="btn btn-primary">
+          Update
+        </button>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="modal-body">
+      <p>
+        You need to be signed in to write a blog entry.
+      </p>
+    </div>
+    <div class="modal-footer">
+        <a href="#" data-dismiss="modal" class="btn">Close</a>
+        <%= link_to "Log In", login_url, :class => "btn btn-primary" %>
+      </div>
+  <% end %>

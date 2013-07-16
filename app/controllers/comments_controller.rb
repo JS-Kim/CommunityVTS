@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   def create
+    debugger
+    puts "******************  comments_controller: create"
     if logged_in?
       comment = Comment.create(
         :body     => params[:body].to_s,

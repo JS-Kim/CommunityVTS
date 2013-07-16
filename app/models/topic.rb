@@ -1,4 +1,6 @@
 class Topic < ActiveRecord::Base
+  #KJS
+  attr_accessible :day
   validates_presence_of :title
 
   has_many :stories, :dependent => :destroy

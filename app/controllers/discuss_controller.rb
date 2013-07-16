@@ -49,7 +49,11 @@ puts "******************discuss_controller: index"
     end
   end
 
+  #KJS: Create a user's blog post
+  # add 'community' here
   def create
+    debugger
+    puts "******************   discuss_controller: create"
     if not logged_in?
       flash[:alert] = 'You need to be logged in to post a story!'
       redirect_back_or(root_url)
@@ -73,13 +77,23 @@ puts "******************discuss_controller: index"
       # Give the user posted story an initial kick of popularity
       story.increase_popularity(Story::ScorePost)
 
+      #KJS
+      selected_id = Community.find(:first, :conditions => "name = 'Public'")
+      if params[:community_id]
+        selected_id = params[:community_id]
+        #puts "************** selected_id: " + selected_id.to_s
+        
+      end
+
       if story.save
         flash[:notice] = "Your post '" << story.title << "' was successfully posted!"
+        Annotation.new(:story_id => story.id, :community_id => selected_id).save!
         # create activity
         activity = ActivityItem.create(
           :story_id => story.id,
           :user_id  => current_user.id,
           :topic_id => -1,
+          :community_id => selected_id, #KJS
           :kind     => ActivityItem::CreatePostType)
         activity.save
         redirect_to('#shared')
@@ -95,4 +109,5 @@ puts "******************discuss_controller: index"
       redirect_back_or(root_url)
     end
   end
+
 end

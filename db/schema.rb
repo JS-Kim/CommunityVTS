@@ -11,17 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704063823) do
+ActiveRecord::Schema.define(:version => 20130716214651) do
 
   create_table "activity_items", :force => true do |t|
-    t.integer  "user_id",                    :null => false
-    t.integer  "story_id",                   :null => false
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
-    t.integer  "topic_id",   :default => -1, :null => false
-    t.integer  "kind",       :default => 0,  :null => false
-    t.integer  "comment_id", :default => -1
-    t.integer  "vote_id",    :default => -1
+    t.integer  "user_id",                      :null => false
+    t.integer  "story_id",                     :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "topic_id",     :default => -1, :null => false
+    t.integer  "kind",         :default => 0,  :null => false
+    t.integer  "comment_id",   :default => -1
+    t.integer  "vote_id",      :default => -1
+    t.integer  "community_id"
   end
 
   create_table "admins", :force => true do |t|
@@ -77,11 +78,10 @@ ActiveRecord::Schema.define(:version => 20130704063823) do
     t.string   "name"
     t.text     "description"
     t.boolean  "approved"
-    t.boolean  "archived"
-    t.boolean  "voteable"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.boolean  "selected"
+    t.boolean  "archived",    :default => false
+    t.boolean  "voteable",    :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "cvotes", :force => true do |t|

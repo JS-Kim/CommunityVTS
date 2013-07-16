@@ -15,8 +15,9 @@
           <td onclick="location.href='<%= community_path(community) %>'" width="120px" id="index_right_field"><%= community.users.count %> Members</td>
         </tr>
       <% end %>
+      <p>
       <%= submit_tag 'Select your communities' %>
-  
+      </p>
   </table>
 
 <% else %>

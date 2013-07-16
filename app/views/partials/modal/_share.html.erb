@@ -6,7 +6,7 @@
   <% if logged_in? %>
     <%= form_for :discuss, :html => {:multipart => true}, :url => discuss_path do |f| %>
       <div class="modal-body">
-        <p>
+        <p >
           <div class="control-group">
             <div class="controls">
               <%= f.text_field :title,
@@ -18,7 +18,7 @@
           <div class="control-group">
             <div class="controls">
               <%= f.text_area :description,
-                :rows => 10,
+                :rows => 8,
                 :placeholder => "Your post...",
                 :class => "span5" %>
             </div>
@@ -29,6 +29,32 @@
             </label>
             <div class="controls">
               <%= f.file_field :photo, :class => "choose-photo" %>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <% @communities = current_user.communities.current_communities %>
+              <% if !@communities.empty? %>
+              <label>
+                <strong>Select a community</strong><br>
+                <font size="2" color="gray">This post is only visible to the selected community.</font>
+              </label>
+              <table width="60%" class="tbl">
+                <% @communities.each do |community| %>
+                  <tr>
+                    <td width="30px">
+                      <% if community.name == 'Public' %>                          
+                          <%= radio_button_tag "community_id", community.id, :checked => true %>
+                        <% else %>                           
+                          <%= radio_button_tag "community_id", community.id, :checked => false %>
+                       <% end %>
+                    </td>
+                    <td width="100px"><%= community.name %></td>
+                    
+                  </tr>
+                <% end %>
+              </table>
+              <% end %>
             </div>
           </div>
         </p>
