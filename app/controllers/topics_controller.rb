@@ -7,7 +7,7 @@ class TopicsController < ApplicationController
 
   def index
     #debugger
-
+    puts "******** topics_controller: index"
     gon.app_url = root_url
     gon.current_user = current_user
     @hashtags = Story.hashtags
@@ -45,6 +45,9 @@ class TopicsController < ApplicationController
       elsif params[:range].to_i == Story::DateRangeLastMonth
         start_date = 1.month.ago
         end_date = Date.tomorrow
+      elsif params[:range].to_i == Story::DateRangeAll #KJS
+        start_date = 1.year.ago
+        end_date = Date.tomorrow
       end
 
       if start_date and end_date
@@ -53,7 +56,8 @@ class TopicsController < ApplicationController
         conditions.push(end_date)
       end
     end
-
+    #debugger
+    #puts "Map"
     stories = Story.find(:all,
       :conditions => conditions,
       :order => "created_at DESC")
@@ -71,8 +75,7 @@ class TopicsController < ApplicationController
 
   def search
     #User Blogs
-    debugger
-    
+    puts "**********topics_controller: search (User Blogs)"
     gon.app_url = root_url
     gon.current_user = current_user
     @stories = Story.search(params)
@@ -83,7 +86,7 @@ class TopicsController < ApplicationController
   end
 
   def search_stories
-
+    puts "*************topics_controller: search_stories"
     @stories = Story.search_stories(params)
     respond_to do |format|
       format.json { render :json => @stories, :include => [:votes, :comments, :user],
@@ -109,6 +112,7 @@ class TopicsController < ApplicationController
 
   def search_topic
 
+     puts "*************** topics_controller: search_topic"
     @topic = Topic.find(params[:id])
     respond_to do |format|
       format.json {

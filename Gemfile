@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails'
 gem 'sqlite3'
-gem 'will_paginate', '~> 3.0.0'
+gem 'will_paginate', '~> 3.0.4'
 gem 'dynamic_form'
 gem 'acts-as-taggable-on', '~>2.1.0' # https://github.com/mbleigh/acts-as-taggable-on
 gem 'gravatar-ultimate'

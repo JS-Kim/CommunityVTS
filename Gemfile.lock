@@ -312,5 +312,5 @@ DEPENDENCIES
   tiny_mce
   uglifier
   whenever
-  will_paginate (~> 3.0.0)
+  will_paginate (~> 3.0.4)
   yaml_db

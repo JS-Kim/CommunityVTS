@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery :only => [:create, :update, :destroy] # :secret => '6862e2c9b157c719a7f15caf25016e73'
 
-  @@topic_limit = 5
+  @@topic_limit = 20 #KJS
 
   private
     def redirect_back_or(path)

@@ -198,16 +198,34 @@ end
     end
 
     annotations = Annotation.find(:all, :conditions => ["community_id IN (?)", community_ids])
-    sel_stories = []
+    #sel_stories = []
+    sel_story_ids = []
     for annotation in annotations
-      sel_stories << Story.find(:first, :conditions => "id = " + annotation.story_id.to_s)
-      # if !sel_stories.index(annotation.story)
-      #   sel_stories.push(annotation.story)
-      # end
-    end 
-    #filtered_stories = sel_stories & stories
-    stories = sel_stories & stories
-    return stories
+        sel_story_ids.push(annotation.story_id)
+      end
+    #sel_stories = Story.find(:all, :conditions => ["id IN (?)", sel_story_ids])
+    #KJS: The results should be paginated
+    sel_stories = Story.paginate(
+      :page => params[:page],
+      :order => "created_at DESC",
+      :conditions => ["id IN (?)", sel_story_ids]);
+
+    #for annotation in annotations
+      #sel_stories << Story.find(:first, :conditions => "id = " + annotation.story_id.to_s)
+      ## if !sel_stories.index(annotation.story)
+      ##   sel_stories.push(annotation.story)
+      ## end
+    #end 
+    #KJS: This is how to get the intersection of two array-results.
+    results = []
+    if stories.length >= sel_stories.length # stories > sel_stories
+      results = sel_stories | stories
+      results = sel_stories & results
+    else # sel_stories > stories
+      results = sel_stories | stories
+      results = results & stories
+    end
+    return results
   end
   # Get the stories for the RSS feed (excluding Twitter and Facebook posts)
   def self.latest_for_rss
@@ -367,6 +385,9 @@ end
         elsif params[:range].to_i == Story::DateRangeLastWeek
           start_date = 1.week.ago
           end_date = Date.tomorrow
+        elsif params[:range].to_i == Story::DateRangeAll #KJS
+          start_date = 1.year.ago
+          end_date = Date.tomorrow
         end
 
         if start_date and end_date
@@ -415,8 +436,9 @@ end
         :order => order)
       
     end
+    #debugger
     #puts("self.search: calling filter_community")
-    #self.add_metadata(stories)
+    self.add_metadata(stories)
     self.filter_community(stories, params)
     
   end

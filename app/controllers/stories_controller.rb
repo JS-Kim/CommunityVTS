@@ -20,7 +20,7 @@ class StoriesController < ApplicationController
       rescue
       end
     end
-
+    
     if @story.source
       if @story.topic_id != -1 and @topic
         @more_stories_from_source = Story.find :all,

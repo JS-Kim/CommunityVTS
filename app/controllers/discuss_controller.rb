@@ -36,7 +36,8 @@ class DiscussController < ApplicationController
         })
       end
     end
-
+#debugger
+puts "******************discuss_controller: index"
     if @stories.count != 0
       @stories = @stories.paginate(:page => params[:page], :per_page => 5)
     end
