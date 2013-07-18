@@ -42,14 +42,13 @@
               <table width="60%" class="tbl">
                 <% @communities.each do |community| %>
                   <tr>
-                    <td width="30px">
-                      <% if community.name == 'Public' %>                          
-                          <%= radio_button_tag "community_id", community.id, :checked => true %>
-                        <% else %>                           
-                          <%= radio_button_tag "community_id", community.id, :checked => false %>
-                       <% end %>
-                    </td>
-                    <td width="100px"><%= community.name %></td>
+                    <% if community.name != 'Public' %> 
+                      <td width="30px">
+                        <%= hidden_field_tag "unchecked_ids[]", community.id %> 
+                        <%= check_box_tag "community_ids[]", community.id, false %>
+                      </td>
+                      <td width="100px"><%= community.name %></td>
+                    <% end %>
                     
                   </tr>
                 <% end %>

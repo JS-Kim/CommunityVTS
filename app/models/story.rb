@@ -193,8 +193,8 @@ end
         community_ids.push(membership.community_id)
       end
     else
-      public_id = Community.find(:first, :conditions => "name = 'Public'")
-      community_ids.push(public_id)
+      public_community = Community.find(:first, :conditions => "name = 'Public'")
+      community_ids.push(public_community.id)
     end
 
     annotations = Annotation.find(:all, :conditions => ["community_id IN (?)", community_ids])

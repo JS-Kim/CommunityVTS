@@ -52,7 +52,7 @@ puts "******************discuss_controller: index"
   #KJS: Create a user's blog post
   # add 'community' here
   def create
-    debugger
+  #  debugger
     puts "******************   discuss_controller: create"
     if not logged_in?
       flash[:alert] = 'You need to be logged in to post a story!'
@@ -77,23 +77,33 @@ puts "******************discuss_controller: index"
       # Give the user posted story an initial kick of popularity
       story.increase_popularity(Story::ScorePost)
 
-      #KJS
-      selected_id = Community.find(:first, :conditions => "name = 'Public'")
-      if params[:community_id]
-        selected_id = params[:community_id]
-        #puts "************** selected_id: " + selected_id.to_s
-        
+      #KJS: from check-boxes
+      unselected_ids = Array.new
+      selected_ids = Array.new
+      if params[:unchecked_ids]
+        unselected_ids = params[:unchecked_ids].collect {|id| id.to_i} 
       end
-debugger
+
+      if params[:community_ids]
+        selected_ids = params[:community_ids].collect {|id| id.to_i} 
+        #puts "************** selected_id: " + selected_id.to_s
+      end
+#debugger
+      if selected_ids.nil? || selected_ids.empty?
+        public_community = Community.find(:first, :conditions => "name = 'Public'")
+        selected_ids.push(public_community.id)
+      end
       if story.save
         flash[:notice] = "Your post '" << story.title << "' was successfully posted!"
-        Annotation.new(:story_id => story.id, :community_id => selected_id).save!
+        selected_ids.each do |sel_id|
+          Annotation.new(:story_id => story.id, :community_id => sel_id).save!
+        end
         # create activity
         activity = ActivityItem.create(
           :story_id => story.id,
           :user_id  => current_user.id,
           :topic_id => -1,
-          :community_id => selected_id, #KJS
+         # :community_id => selected_id, #KJS, not used....for multiple communities..
           :kind     => ActivityItem::CreatePostType)
         activity.save
         redirect_to('#shared')
