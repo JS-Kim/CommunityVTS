@@ -38,12 +38,30 @@ class StoriesController < ApplicationController
       end
 
     elsif @story.kind == Story::Post
+      #KJS : filtering communities
+      community_ids = []
+      sel_story_ids = []
+      if logged_in?
+        selectedmemberships = Membership.find(:all, :conditions => {:selected => true, :user_id => current_user.id} )
+        for membership in selectedmemberships
+          community_ids.push(membership.community_id)
+        end
+        annotations = Annotation.find(:all, :conditions => ["community_id IN (?)", community_ids]) 
+        for annotation in annotations
+          sel_story_ids.push(annotation.story_id)
+        end
+      else
+        #flash[:notice] = "You logged out."
+        #redirect_to root_url
+        redirect_to logout_url 
+        return
+      end
       @user_posted_stories = Story.find :all,
-        :conditions => ["user_id = ?", @story.user.id],
+        :conditions => ["user_id = ? and id In (?)", @story.user.id, sel_story_ids],
         :order => "published_at DESC",
         :limit => 5
       @all_posted_stories = Story.find :all,
-        :conditions => ["kind = ? and user_id != ?", Story::Post, @story.user.id],
+        :conditions => ["kind = ? and user_id != ? and id In (?)", Story::Post, @story.user.id, sel_story_ids],
         :order => "published_at DESC",
         :limit => 5
     end

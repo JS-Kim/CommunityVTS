@@ -32,6 +32,7 @@ class SessionsController < ApplicationController
     cookies.delete :auth_token
     reset_session
     flash[:notice] = "You successfully logged out."
-    redirect_back_or(root_url)
+    #redirect_back_or(root_url)
+    redirect_to root_url #KJS. because it can be called from stories_controller. cannot be back to show.html if logged out.
   end
 end
