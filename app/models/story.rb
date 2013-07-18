@@ -205,10 +205,12 @@ end
       end
     #sel_stories = Story.find(:all, :conditions => ["id IN (?)", sel_story_ids])
     #KJS: The results should be paginated
+
     sel_stories = Story.paginate(
       :page => params[:page],
       :order => "created_at DESC",
-      :conditions => ["id IN (?)", sel_story_ids]);
+      :conditions => ["kind = ? AND id IN (?)", params[:type].to_i, sel_story_ids]);
+     # :conditions => ["id IN (?)", sel_story_ids]);
 
     #for annotation in annotations
       #sel_stories << Story.find(:first, :conditions => "id = " + annotation.story_id.to_s)
@@ -319,7 +321,7 @@ end
           stories.push(like.story)
         end
       end
-
+    #  self.filter_community(stories, params) #KJS. July 17, 2013
     # Likes
     elsif params[:type].to_i == Story::Likes
       likes = Vote.paginate(
@@ -332,13 +334,14 @@ end
       for like in likes
         stories.push(like.story)
       end
-
+    #  self.filter_community(stories, params) #KJS. July 17, 2013
     # User Shared Posts
     elsif params[:type].to_i == Story::Post
       stories = Story.paginate(
         :page => params[:page],
         :order => "created_at DESC",
         :conditions => {:kind => Story::Post});
+    #  self.filter_community(stories, params) #KJS. July 17, 2013
 
     # Posts by a specific user
     elsif params[:type].to_i == Story::ByUser
@@ -434,7 +437,7 @@ end
         :page => params[:page],
         :conditions => conditions,
         :order => order)
-      
+    #  self.filter_community(stories, params) #KJS. July 17, 2013  
     end
     #debugger
     #puts("self.search: calling filter_community")

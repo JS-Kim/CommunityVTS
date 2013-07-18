@@ -36,7 +36,7 @@ Colloki::Application.routes.draw do
   root :to => 'topics#index'
 
 
-#  match 'community', :to => 'communities#index', :as => 'community'
+
   match 'post_picture', :to => 'stories#new', :as => 'post_picture'
   match 'settings', :to => 'users#settings', :as => 'settings'
   match 'activate/:activation_code', :to => 'users#activate', :as => 'activate'

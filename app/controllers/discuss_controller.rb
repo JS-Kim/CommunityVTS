@@ -84,7 +84,7 @@ puts "******************discuss_controller: index"
         #puts "************** selected_id: " + selected_id.to_s
         
       end
-
+debugger
       if story.save
         flash[:notice] = "Your post '" << story.title << "' was successfully posted!"
         Annotation.new(:story_id => story.id, :community_id => selected_id).save!

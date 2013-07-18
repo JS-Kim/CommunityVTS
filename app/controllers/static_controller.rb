@@ -4,6 +4,8 @@ class StaticController < ApplicationController
   ]
 
   def index
+    debugger
+    puts "************** StaticController:Index"
     if template_exists? path = 'static/' + params[:path].join('/')
       render_cached path
     elsif template_exists? path += '/index'

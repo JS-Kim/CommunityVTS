@@ -213,6 +213,7 @@ class StoriesController < ApplicationController
       @story = Story.find(params[:id])
       @title = @story.title
       @topic = @story.topic
+      @story.communities.delete_all
       @story.destroy
       flash[:notice] = "The story '" << @title << " ' was successfully deleted!"
       redirect_to root_url
@@ -232,7 +233,5 @@ class StoriesController < ApplicationController
     flash[:notice] = "Email was successfully sent!"
     redirect_back_or root_url
   end
-
-  #KJS. for 'community' concept
   
 end
