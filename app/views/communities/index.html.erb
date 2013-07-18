@@ -3,21 +3,23 @@
 <% if !@communities.empty? %>
   <table width="100%" class="tbl">
     
-      <%= form_tag update_selections_communities_path %>
-      <% @communities.zip(@selected).each do |community, sel| %>
-        <tr>
-          <td width="30px">
-            <%= hidden_field_tag "unchecked_ids[]", community.id %>
-            <%= check_box_tag "community_ids[]", community.id, sel ? true : false %>
-          </td>
-          <td onclick="location.href='<%= community_path(community) %>'" width="200px"><%= community.name %></td>
-          <td onclick="location.href='<%= community_path(community) %>'" class="overflow"><%= community.description %></td>
-          <td onclick="location.href='<%= community_path(community) %>'" width="120px" id="index_right_field"><%= community.users.count %> Members</td>
-        </tr>
-      <% end %>
-      <p>
-      <%= submit_tag 'Select your communities' %>
-      </p>
+      <%= form_tag url_for(:controller => "communities", :action => "update_selections"), :metohd => "put" do %>
+        <% @communities.zip(@selected).each do |community, sel| %>
+          <tr>
+            <td width="30px">
+              <%= hidden_field_tag "unchecked_ids[]", community.id %>
+              <%= check_box_tag "community_ids[]", community.id, sel ? true : false %>
+            </td>
+            <td onclick="location.href='<%= community_path(community) %>'" width="200px"><%= community.name %></td>
+            <td onclick="location.href='<%= community_path(community) %>'" class="overflow"><%= community.description %></td>
+            <td onclick="location.href='<%= community_path(community) %>'" width="120px" id="index_right_field"><%= community.users.count %> Members</td>
+          </tr>
+        <% end %>
+      
+        <p>
+        <%= submit_tag 'Select your communities' %>
+        </p>
+     <% end %>
   </table>
 
 <% else %>

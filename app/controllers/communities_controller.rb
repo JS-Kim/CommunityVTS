@@ -12,6 +12,7 @@ class CommunitiesController < ApplicationController
             Membership.unselect_communities(m)
           end 
         end
+        
         flash[:notice] = "Your selection was successfull."
       end
     end
@@ -24,7 +25,8 @@ class CommunitiesController < ApplicationController
           @selectedmemberships = Membership.find(:all, :conditions => ["community_id = " + id.to_s + " AND " + "user_id = " + current_user.id.to_s])
           @selectedmemberships.each do |m|                  
             Membership.select_communities(m)
-          end       
+          end  
+            
           flash[:notice] = "Your selection was successfull."
         end
       end
