@@ -1,8 +1,8 @@
 <%= form_for ([@commentable, @comment]) do |f| %>
   <%= f.hidden_field :parent_id %>
   <p>
-    <%= f.label :body, "New Comment" %><br />
-    <%= f.text_area :body, :rows => 4 %>
+  	<%= f.label :body, "New Comment" %><br />
+  	<%= f.text_area :body, :class => "span12 comment-body", :rows => "6" %>
   </p>
-  <p><%= f.submit "Post Comment" %></p>
+  <p><%= f.submit "Post Comment", :class => "btn btn-small btn-primary add-comment"%></p>
 <% end %>
