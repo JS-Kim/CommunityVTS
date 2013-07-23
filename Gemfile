@@ -7,6 +7,7 @@ gem 'dynamic_form'
 gem 'acts-as-taggable-on', '~>2.1.0' # https://github.com/mbleigh/acts-as-taggable-on
 gem 'gravatar-ultimate'
 gem 'mongrel'
+gem 'ancestry'
 # Authentication
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'

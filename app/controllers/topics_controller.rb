@@ -1,4 +1,6 @@
 class TopicsController < ApplicationController
+  #lib/commentable.rb
+  include Commentable 
   before_filter :get_topics
 
   def get_topics

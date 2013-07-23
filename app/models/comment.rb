@@ -1,4 +1,10 @@
 class Comment < ActiveRecord::Base
+  
+  #KJS: for nested comments
+  has_ancestry
+  attr_accessible :body, :parent_id, :commentable_id, :commentable_type
+  belongs_to :commentable, :polymorphic => true
+  
   validates_presence_of :body
 
   belongs_to :user

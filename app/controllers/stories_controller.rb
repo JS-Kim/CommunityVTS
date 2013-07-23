@@ -1,4 +1,6 @@
 class StoriesController < ApplicationController
+  #lib/commentable.rb
+  include Commentable 
   # TODO: The URL for this action is currently http://site/stories/<ID>.
   # It needs to be http://site/topic/<Topic_ID>/story/<ID>
   # or if topics get mnemonics, then, http://site/<topic-mnemonic>/{links|posts}/<ID>

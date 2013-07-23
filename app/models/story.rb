@@ -1,4 +1,5 @@
 class Story < ActiveRecord::Base
+  
   # Constant Definitions
   Link = 0
   Post = 1
@@ -45,7 +46,10 @@ class Story < ActiveRecord::Base
   belongs_to :user
   belongs_to :topic
 
-  has_many :comments, :dependent => :destroy
+  #KJS: for nested comments
+  #has_many :comments, :dependent => :destroy
+  attr_accessible :story_id, :user_id
+  has_many :comments, :as => :commentable, :dependent => :destroy
   has_many :activity_items, :dependent => :destroy
   has_many :votes, :dependent => :destroy
 

@@ -49,10 +49,10 @@
       :locals => {:story => @story, :users => @likers}
     %>
 
-    <!-- Story Comments -->
-    <%= render :partial => "stories/comments",
-      :locals => {:story => @story }
-    %>
+    <!-- Story Comments: changed by Ji-Sun -->
+    <%= nested_comments @comments %>
+    <%= render :partial => "comments/form" %>
+
 
     <% if @story.kind == Story::Rss %>
       <hr>
