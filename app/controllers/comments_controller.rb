@@ -6,7 +6,9 @@ class CommentsController < ApplicationController
     #debugger
     if logged_in?
       @parent_id = params.delete(:parent_id)
+      #@parent_id = params[:parent_id]
       @commentable = find_commentable
+      puts "************ comments_controller: new .... parent_id : "  + @parent_id.to_s
       @comment = Comment.new( :parent_id => @parent_id, 
                               :commentable_id => @commentable.id,
                               :commentable_type => @commentable.class.to_s)
@@ -14,20 +16,51 @@ class CommentsController < ApplicationController
   end
 
   def create
-    debugger
+    #debugger
     puts "******************  comments_controller: create"
     if logged_in?
       @commentable = find_commentable
-      # comment = Comment.create(
-        #   :body     => params[:body].to_s,
-        #   :user_id  => current_user.id,
-        #   :story_id => params[:story_id].to_i)
-        # comment.save
       @comment = @commentable.comments.build(params[:comment])
       
+      #from check-boxes
+      selected_ids = [] 
+      if params[:community_ids]
+        selected_ids = params[:community_ids].collect {|id| id.to_i} 
+        #puts "************** selected_id: " + selected_id.to_s
+      end
+      @parent_id = @comment.parent_id
+
+      story_annotations = []
+      if selected_ids.nil? || selected_ids.empty?
+        unless @comment.nil? || @comment.id.to_i >= 0
+          story_annotations = CommentAnnotation.find(:all, :conditions => {:comment_id => @parent_id})
+        else
+          story_annotations = Annotation.find(:all, :conditions => {:story_id => @commentable.id} )
+        end
+      end
+      unless story_annotations.nil? 
+        for annotation in story_annotations
+            selected_ids.push(annotation.community_id)
+        end
+      end
+
       if @comment.save
-        @comment.update_attributes(:user_id  => current_user.id, :story_id => :parent_id)
-      
+        unless selected_ids.nil?
+          selected_ids.each do |sel_id|
+            #CommentAnnotation.new (:comment_id => @comment.id, :community_id => sel_id).save! ==> not working
+            @comment_association = CommentAnnotation.new
+            @comment_association.comment_id =  @comment.id
+            @comment_association.community_id = sel_id
+            @comment_association.save
+          end
+        end
+        #@comment.update_attributes(:user_id  => current_user.id, :story_id => @commentable.id) ==> not working
+        @comment.user_id = current_user.id
+        @comment.story_id = @commentable.id
+        @comment.save
+
+      debugger
+
       # increment story popularity
         story = Story.find(params[:story_id])
         story.increase_popularity(Story::ScoreComment)
@@ -55,6 +88,7 @@ class CommentsController < ApplicationController
   def destroy
     if logged_in?
       @comment = Comment.find(params[:id])
+      @comment.communities.delete_all #CommentAnnotation
       @comment.destroy
       if @comment.user == current_user
         @comment.story.decrease_popularity(Story::ScoreComment)

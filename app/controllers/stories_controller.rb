@@ -52,6 +52,24 @@ class StoriesController < ApplicationController
         for annotation in annotations
           sel_story_ids.push(annotation.story_id)
         end
+
+        story_community_ids = []
+        story_annotations = Annotation.find(:all, :conditions => {:story_id => @story.id} )
+        for annotation in story_annotations
+            story_community_ids.push(annotation.community_id)
+        end
+        @story_communities = Community.find(:all, :conditions => ["id IN (?)", story_community_ids]) 
+      
+        # @user_communities = Community.find(:all, :conditions => ["id IN (?)", community_ids]) 
+
+        # @results = []
+        # if story_communities.length >= @user_communities.length # user_communities > story_communities
+        #   @results = @user_communities | @story_communities
+        #   @results = @user_communities & @results
+        # else # story_communities > user_communities
+        #   @results = @user_communities | @story_communities
+        #   @results = @results & @story_communities
+        # end
       else
         #flash[:notice] = "You logged out."
         #redirect_to root_url

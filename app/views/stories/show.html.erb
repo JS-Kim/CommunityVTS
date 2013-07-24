@@ -10,8 +10,7 @@
     <!-- Story Meta -->
     <div class="row-fluid">
       <div class="span7 story-meta">
-        <%= render :partial => "stories/meta", :locals => {:story => @story}
-        %>
+        <%= render :partial => "stories/meta", :locals => {:story => @story} %>
       </div>
 
       <!-- Story Buttons -->
@@ -30,6 +29,7 @@
         <%= render :partial => "stories/share",
           :locals => { :story => @story }
         %>
+
       </div>
     </div>
 
@@ -38,6 +38,18 @@
       :story => @story
     } %>
 
+    <!-- Story communities -->
+        <br><br>
+        <font size="2" color="gray">Shared communities: 
+        
+        <% unless @story_communities.nil? %>
+          <% @story_communities.each do |community| %>
+             <li><%= community.name %></li>
+          <% end %>
+        <% end %>
+        </font>
+        <br>
+        
     <!-- Related Facebook and Twitter posts -->
     <%= render :partial => "stories/related_posts", :locals => {
       :posts => @related_posts
@@ -49,7 +61,7 @@
       :locals => {:story => @story, :users => @likers}
     %>
 
-    <!-- Story Comments: changed by Ji-Sun -->
+    <!-- KJS: Story Comments: changed by Ji-Sun -->
     <%= nested_comments @comments %>
     <%= render :partial => "comments/form" %>
 

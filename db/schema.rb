@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130722182044) do
+ActiveRecord::Schema.define(:version => 20130723154521) do
 
   create_table "activity_items", :force => true do |t|
     t.integer  "user_id",                      :null => false
@@ -66,18 +66,26 @@ ActiveRecord::Schema.define(:version => 20130722182044) do
     t.datetime "updated_at",     :null => false
   end
 
+  create_table "comment_annotations", :force => true do |t|
+    t.integer  "community_id"
+    t.integer  "comment_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "comment_annotations", ["comment_id"], :name => "index_comment_annotations_on_comment_id"
+  add_index "comment_annotations", ["community_id"], :name => "index_comment_annotations_on_community_id"
+
   create_table "comments", :force => true do |t|
     t.text     "body"
-    t.integer  "user_id",          :null => false
-    t.integer  "story_id",         :null => false
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.integer  "user_id"
+    t.integer  "story_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "ancestry"
     t.string   "commentable_type"
     t.integer  "commentable_id"
   end
-
-  add_index "comments", ["ancestry"], :name => "index_comments_on_ancestry"
 
   create_table "communities", :force => true do |t|
     t.string   "name"

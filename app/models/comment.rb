@@ -11,6 +11,8 @@ class Comment < ActiveRecord::Base
   belongs_to :story
   # todo: why is this not working?
   has_one :activity_item, :dependent => :destroy
+  has_many :comment_annotations
+  has_many :communities, :through => :comment_annotations, :uniq => true
 
   def self.find_by_user(user_id, limit=5)
     find :all,

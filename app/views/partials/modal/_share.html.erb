@@ -36,20 +36,21 @@
               <% @communities = current_user.communities.current_communities %>
               <% if !@communities.empty? %>
               <label>
-                <strong>Select a community</strong><br>
+                <strong>Select communities</strong><br>
                 <font size="2" color="gray">This post is only visible to the selected community.</font>
               </label>
               <table width="60%" class="tbl">
-                <% @communities.each do |community| %>
+                <% @communities.in_groups_of(2, false) do |community_array| %>
                   <tr>
-                    <% if community.name != 'Public' %> 
-                      <td width="30px">
-                        <%= hidden_field_tag "unchecked_ids[]", community.id %> 
-                        <%= check_box_tag "community_ids[]", community.id, false %>
-                      </td>
-                      <td width="100px"><%= community.name %></td>
+                    <% for community in community_array %>
+                      <% if community.name != 'Public' %> 
+                        <td width="30px">
+                          <%= hidden_field_tag "unchecked_ids[]", community.id %> 
+                          <%= check_box_tag "community_ids[]", community.id, false %>
+                        </td>
+                        <td width="100px"><%= community.name %></td>
+                      <% end %>
                     <% end %>
-                    
                   </tr>
                 <% end %>
               </table>

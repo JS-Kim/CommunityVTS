@@ -53,7 +53,7 @@ puts "******************discuss_controller: index"
   # add 'community' here
   def create
   #  debugger
-    puts "******************   discuss_controller: create"
+  #  puts "******************   discuss_controller: create"
     if not logged_in?
       flash[:alert] = 'You need to be logged in to post a story!'
       redirect_back_or(root_url)
