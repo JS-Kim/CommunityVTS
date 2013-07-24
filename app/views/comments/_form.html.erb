@@ -7,13 +7,15 @@
 	<div class="control-group">
    		<div class="controls">
         	<% @communities = current_user.communities.current_communities %>
-        	<% unless @comment.nil? || @comment.id.to_i >= 0 %>
-        		<% @communities = intersected_communities(1, @comment, @communities) %> 
-        		<% debug @communities %>
+        	
+        	<% if @comment.parent %>
+        		<% @communities = intersected_communities(1, @comment.parent, @communities) %> 
+        		
         	<% else %>
         		<% @communities = intersected_communities(0, @commentable, @communities) %>
+        		
         	<% end %>
-        	<% debug @commentable %>
+        	
             <% unless @communities.empty? || @communities.nil? %>
            		<label>
                		<strong>Select communities</strong><br>

@@ -5,6 +5,7 @@ class StoriesController < ApplicationController
   # It needs to be http://site/topic/<Topic_ID>/story/<ID>
   # or if topics get mnemonics, then, http://site/<topic-mnemonic>/{links|posts}/<ID>
   def show
+    #debugger
     @story = Story.includes(:comments => :user).find(params[:id])
 
     if (!@story)
@@ -53,13 +54,6 @@ class StoriesController < ApplicationController
           sel_story_ids.push(annotation.story_id)
         end
 
-        story_community_ids = []
-        story_annotations = Annotation.find(:all, :conditions => {:story_id => @story.id} )
-        for annotation in story_annotations
-            story_community_ids.push(annotation.community_id)
-        end
-        @story_communities = Community.find(:all, :conditions => ["id IN (?)", story_community_ids]) 
-      
         # @user_communities = Community.find(:all, :conditions => ["id IN (?)", community_ids]) 
 
         # @results = []
@@ -85,7 +79,18 @@ class StoriesController < ApplicationController
         :order => "published_at DESC",
         :limit => 5
     end
-
+    #KJS: for displaying communities
+    if logged_in?
+      if @story.kind == Story::Post || @story.kind == Story::Rss
+        story_community_ids = []
+        story_annotations = Annotation.find(:all, :conditions => {:story_id => @story.id} )
+          for annotation in story_annotations
+            story_community_ids.push(annotation.community_id)
+          end
+    
+          @story_communities = Community.find(:all, :conditions => ["id IN (?)", story_community_ids]) 
+        end
+    end
     @page_title = @story.title
 
     if @story.views == nil
