@@ -12,6 +12,17 @@ class CommentsController < ApplicationController
       @comment = Comment.new( :parent_id => @parent_id, 
                               :commentable_id => @commentable.id,
                               :commentable_type => @commentable.class.to_s)
+
+      @parent_comment = Comment.find(@parent_id)
+
+      @comment_user = User.find(:first, :conditions => {:id => @parent_comment.user_id})
+
+      comment_community_ids = []
+      comment_annotations = CommentAnnotation.find(:all, :conditions => {:comment_id => @parent_id} )
+      for annotation in comment_annotations
+        comment_community_ids.push(annotation.community_id)
+      end
+      @commnent_communities = Community.find(:all, :conditions => ["id IN (?)", comment_community_ids])
     end
   end
 
@@ -31,21 +42,26 @@ class CommentsController < ApplicationController
       @parent_id = @comment.parent_id
 
       story_annotations = []
-      if selected_ids.nil? || selected_ids.empty?
-        unless @comment.nil? || @comment.id.to_i >= 0
+      
+      if selected_ids.empty?
+        debugger
+        unless @comment.nil?
           story_annotations = CommentAnnotation.find(:all, :conditions => {:comment_id => @parent_id})
+          debugger
         else
           story_annotations = Annotation.find(:all, :conditions => {:story_id => @commentable.id} )
+
         end
       end
-      unless story_annotations.nil? 
+      unless story_annotations.nil?
         for annotation in story_annotations
+            #selected_ids.push(annotation.community_id)
             selected_ids.push(annotation.community_id)
         end
       end
 
       if @comment.save
-        unless selected_ids.nil?
+        unless selected_ids.nil? || selected_ids.empty?
           selected_ids.each do |sel_id|
             #CommentAnnotation.new (:comment_id => @comment.id, :community_id => sel_id).save! ==> not working
             @comment_association = CommentAnnotation.new
@@ -59,7 +75,7 @@ class CommentsController < ApplicationController
         @comment.story_id = @commentable.id
         @comment.save
 
-      debugger
+      #debugger
 
       # increment story popularity
         story = Story.find(params[:story_id])

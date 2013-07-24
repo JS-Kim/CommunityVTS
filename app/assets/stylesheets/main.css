@@ -494,7 +494,7 @@ caption {
     margin-bottom: 20px;
 }
 .nested_comments {
-  margin-left: 20px;
+  margin-left: 30px;
 }
 .nested_comments .nested_comments .nested_comments .nested_comments .nested_comments{
   margin-left: 0;
@@ -525,6 +525,12 @@ caption {
   text-decoration: none;
 }
 
+.comment .user {
+  color: black;
+  font-family:arial;
+  font-weight:bold;
+  text-decoration: none;
+}
 .comment .created_at {
   color: #555;
   font-size: 12px;
@@ -538,5 +544,4 @@ caption {
 
 .comment .actions a {
   text-decoration: none;
-}
 }

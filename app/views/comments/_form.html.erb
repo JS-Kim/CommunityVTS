@@ -8,9 +8,8 @@
    		<div class="controls">
         	<% @communities = current_user.communities.current_communities %>
         	
-        	<% if @comment.parent %>
+        	<% unless @comment.parent.nil? %>
         		<% @communities = intersected_communities(1, @comment.parent, @communities) %> 
-        		
         	<% else %>
         		<% @communities = intersected_communities(0, @commentable, @communities) %>
         		

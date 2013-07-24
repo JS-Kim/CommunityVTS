@@ -1,5 +1,7 @@
+
 <div class="comment">
   <div class="created_at"><%= comment.created_at.strftime("%B %d, %Y") %></div>
+  <div class="user"><%= @comment_user.realname if @comment_user %> wrote:</div>
   <div class="body">
     <%= comment.body%>
   </div>
@@ -7,12 +9,12 @@
     <%= link_to "Reply", new_polymorphic_path([@commentable, Comment.new], :parent_id => comment) %> |
     <%= link_to "Destroy", comment, :confirm => "Are you sure?", :method => :delete %>
   </div>
-	<font size="2" color="gray">Shared communities: 
-
 	<% unless @commnent_communities.nil? %>
+	  <font size="2" color="gray">Shared communities: 	
 	  <% @commnent_communities.each do |community| %>
 	     <li><%= community.name %></li>
 	  <% end %>
+	  </font>
 	<% end %>
-	</font>
+	
 </div>
