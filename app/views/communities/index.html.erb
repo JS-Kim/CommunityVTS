@@ -17,7 +17,7 @@
         <% end %>
       
         <p>
-        <%= submit_tag 'Select your communities' %>
+        <%= submit_tag 'Select your communities', :class => "btn btn-primary" %>
         </p>
      <% end %>
   </table>
@@ -32,3 +32,10 @@
     <% end %>
   </div>
 <% end %>
+<br>
+
+<p>
+  <%= link_to 'Create new community', new_community_path, :class => "btn pull-right" %>
+</p>
+
+

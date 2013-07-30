@@ -16,7 +16,40 @@ if (window.location.hash == "#_=_") {
   window.location.hash = "";
 }
 
-$(document).ready(function(e) {
+$(document).ready(function() {
+
+  $.ajaxSetup({  
+     'beforeSend': function (xhr){
+     xhr.setRequestHeader("Accept", "text/javascript")}  
+  });
+  $("#vote_yes").click(function () {
+    $("#approval").val(true)
+    alert("test")
+     var valuesToSubmit = $(".edit_cvote").serialize();
+     alert(valueToSubmit);
+     $.ajax({
+        url: $(".edit_cvote").attr('action'), //sumbits it to the given url of the form
+        data: valuesToSubmit,
+        dataType: "JSON" // you want a difference between normal and ajax-calls, and json is standard
+       }).success(function(json){
+     });
+ 
+    var button_area = $('#header_buttons');
+    button_area.html("You just voted 'yes' on this ballot.");
+    setTimeout(function(){ button_area.fadeOut() }, 3000);
+    return false;
+  });
+
+    $("#vote_no").click(function () {
+        $("#approval").val(false)
+        $(".edit_cvote").submit()
+        var button_area = $('#header_buttons');
+        button_area.html("You just voted 'no' on this ballot.");
+        setTimeout(function(){ button_area.fadeOut() }, 3000);
+        return false;
+
+    });
+
   $(".topbar").dropdown();
 
   // Only enable tooltips and popovers on non-mobile devices
@@ -44,6 +77,7 @@ $(document).ready(function(e) {
     slicePoint: 150,
     userCollapseText: 'less'
   });
+
 });
 
 // get the avatar image for a user
@@ -81,3 +115,7 @@ var isMobile = {
     return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
   }
 };
+
+jQuery.ajaxSetup({  
+    'beforeSend': function (xhr) {xhr.setRequestHeader("Accept", "text/javascript")}  
+}); 

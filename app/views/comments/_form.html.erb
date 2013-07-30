@@ -12,7 +12,6 @@
         		<% @communities = intersected_communities(1, @comment.parent, @communities) %> 
         	<% else %>
         		<% @communities = intersected_communities(0, @commentable, @communities) %>
-        		
         	<% end %>
         	
             <% unless @communities.empty? || @communities.nil? %>

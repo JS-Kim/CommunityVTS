@@ -22,15 +22,9 @@ class Ballot < ActiveRecord::Base
   		if @cvotes.size == ballot.cvotes.size
   			#find the community (tag) then add everyone who voted 'yes' (all approval == 'true' votes)
   			finished = true
-  			approved = true
-  			ballot.cvotes.each do |v|
-  				if v.approval
-  					@cvote.users << v.user
-  					@cvote.users << User.find(ballot.author_id)
-  				end
-  			end
+  			
   			#activate the community
-  			@community.update_attributes('approved' => true)
+  			#@community.update_attributes('approved' => true) #KJS: initially it is approved
   			ballot.update_attributes('over' => true, 'outcome' => 'success')
   		end #voting is done
 
@@ -49,7 +43,7 @@ class Ballot < ActiveRecord::Base
 
   		if @cvotes.include?(false)
   			#ballot did not pass
-  			ballot.update_attributes('ocver' => true, 'outcome' => 'failure')
+  			ballot.update_attributes('over' => true, 'outcome' => 'failure')
   			finished = true
   			approved = false
   			@community.update_attributes(:voteable, true)
@@ -64,7 +58,7 @@ class Ballot < ActiveRecord::Base
   			elsif ballot.vote_type == 'remove_community_member'
   				@community.users.delete(User.find(ballot.member_id))
   			end
-  			@community.update_attributes(:voteable, true)
+  			@community.update_attribute(:voteable, true)
   		end
   		if ballot.notification
   			ballot.notification.update_attributes(:message => "#{@message} (#{@community.name}): #{@cvotes.count}/#{ballot.cvotes.count} votes", :finished => finished, :approved => approved)

@@ -2,7 +2,24 @@
 <%= render :partial => "communities/show/buttons" %>
 <div id="email_header">
   <strong><%= @community.name %></strong>
-</div>
+
+  <span id="header_buttons">
+    <%= link_to "Add Member", @community, :format => :js, :class => "buttons", :id => "add_member", :remote => true %>
+    <%= link_to("Remove Member", "#", :class => "buttons", :id => "remove_member") %>
+    <%= link_to("Edit Description", "#", :class => "buttons", :id => "edit_description") %>
+    <div class="pull-left hidden-phone hidden-tablet" id="navbar-share">
+            <a data-toggle="modal" href="#addMember-modal" class="btn btn-small btn-info">
+              <i class="icon-pencil icon-white"></i>
+              Add Member
+            </a>
+          </div>s
+  <!-- Modal for share button -->
+    <%= render :partial => "partials/modal/addMember" %>
+    
+</span>
+</div>  <br>
+
+
 <div id="show_content">
   <h3>Members</h3>
   <ul class="tag-show-users">
@@ -19,3 +36,46 @@
   <%= render :partial => "communities/show/buttons" %>
 </div>
 
+
+<div class="modal hide" id="add_member_dialog">
+  <%= form_for(@community) do |f| %>
+      <%= hidden_field_tag("edit_type", "add") %>
+      <%= f.label :email %>
+      <br/>
+      <%= text_field_tag :add_person %>
+      <%= f.submit "Submit", :class => "buttons" %>
+  <% end %>
+</div>
+
+<div class="modal hide" id="remove_member_dialog">
+  <%= form_for(@community) do |f| %>
+      <%= hidden_field_tag("edit_type", "remove") %>
+      <%= f.label :email %>
+      <br/>
+      <%= text_field_tag :remove_person %>
+      <%= f.submit "Submit", :class => "buttons" %>
+  <% end %>
+</div>
+
+
+<div class="modal hide" id="edit_description_dialog">
+  <%= form_for(@community) do |f| %>
+      <%= f.label :description %>
+      <br/>
+      <%= f.text_area :description %>
+      <%= f.submit "Submit", :class => 'buttons' %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  var $add_member_dialog = $('#add_member_dialog').dialog({
+        autoOpen:false,
+        title:'Add Member',
+        modal:true,
+        draggable:false,
+        width:230
+    });
+   $('#add_member').click(function () {
+        $add_member_dialog.dialog('open');
+    });
+</script>

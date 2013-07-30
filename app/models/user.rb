@@ -41,6 +41,7 @@ class User < ActiveRecord::Base
   #KJS. For 'community' concept
   has_many :memberships
   has_many :communities, :through => :memberships, :uniq => true
+  has_and_belongs_to_many :emails
   has_many :cvotes
   has_many :ballots, :through => :cvotes
   
@@ -49,6 +50,20 @@ class User < ActiveRecord::Base
   acts_as_followable
   acts_as_follower
 
+  #KJS
+  #return the user's email for User.find(:id)
+  def to_s
+    email
+  end
+
+  def self.autocomplete(search)
+    if search
+      find(:all, :conditions => ['name LIKE ?', "#{search}%"])
+    else
+      find(:all)
+    end
+  end
+  
   # Activates the user in the database.
   def activate
     @activated = true

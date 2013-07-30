@@ -2,22 +2,57 @@ class BallotsController < ApplicationController
   # GET /ballots
   # GET /ballots.json
   def index
-    @ballots = Ballot.all
+    @filter = params[:filter]
+
+    if @filter.nil?
+      @filter = 'pending'
+    end
+
+    if @filter == 'pending'
+      #current_user.cvotes returns a relation which can be extended with the 'pending' scope and 'required' scope to filter only votes that are still pending and need the current_user to vote
+      @cvotes = current_user.cvotes.pending.required.sort!{|a,b| b.created_at <=> a.created_at}
+    elsif @filter == 'past'
+      #current_user.cvotes returns a relation which can be extended with the 'past' scope to filter only votes that have been votes on
+      @cvotes = current_user.cvotes.past.sort!{|a,b| b.created_at <=> a.created_at}
+    else
+      @cvotes = []
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @ballots }
+      format.xml  { render :xml => @ballots }
     end
   end
 
   # GET /ballots/1
   # GET /ballots/1.json
   def show
-    @ballot = Ballot.find(params[:id])
+     @ballot = Ballot.find(params[:id])
+
+    if @ballot.vote_type == "exception"
+      @email = Email.find(@ballot.content_id)
+    end
+
+    #give me the vote associated with this ballot (the current_user's vote)
+    @myvote = @ballot.cvotes.map{|x| x if x.user_id == current_user.id}.compact[0]
+
+    #KJS: if the member added is not yourself, then the message is automatrically approved
+    @cvote = Cvote.find(@myvote.id)
+    if @ballot.member_id != current_user.id
+      if @ballot.myballots_type == "Community"
+        if @ballot.vote_type == "add_community_member" 
+          @cvote.approval = true
+          @cvote.save
+          if @cvote.update_attributes(params[:cvote])
+            Ballot.vote_check(@cvote.ballot)
+          end
+        end
+      end
+    end
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @ballot }
+      format.xml  { render :xml => @ballot }
     end
   end
 

@@ -102,6 +102,19 @@
                 <li>
                   <%= link_to "Community", "/communities" %>
                 </li>
+                <li class="dropdown active">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Messages
+                    <% if current_user.cvotes.pending.required.count > 0 %>
+                      <%= "(" + current_user.cvotes.pending.required.count.to_s + ")" %>
+                    <% end %>
+                    <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "Pending", ballots_path(:filter => "pending") %></li>
+                    <li><%= link_to "Past", ballots_path(:filter => "past") %></li>
+                  </ul>
+                </li>
               <% else %>
                 <li><%= link_to "Log In", login_url %></li>
               <% end %>

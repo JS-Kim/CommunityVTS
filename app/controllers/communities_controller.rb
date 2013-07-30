@@ -142,19 +142,20 @@ class CommunitiesController < ApplicationController
       end
 
     #if user entered some communities add each community's users to @members
-      if !params[:other_communities].nil?
-        @communities = params[:other_communities].split(/[,;]\s?/)
-        @communities.each do |communities|
-          @other_community = Community.find_by_name(community)
-          if @other_community.nil?
-            @invalid_communities << community
-          else
-            @members = @members | @other_community.users
-          end
-        end
-      end
+      # if !params[:other_communities].nil?
+      #   @communities = params[:other_communities].split(/[,;]\s?/)
+      #   @communities.each do |communities|
+      #     @other_community = Community.find_by_name(community)
+      #     if @other_community.nil?
+      #       @invalid_communities << community
+      #     else
+      #       @members = @members | @other_community.users
+      #     end
+      #   end
+      # end
 
-      @community.approved = false
+      #@community.approved = false
+      @community.approved = true #KJS. it is automatically approved. July 25. 2013
 
       respond_to do |format|
         if (@invalid_members.size > 0 or @invalid_communities.size > 0) or (@members.empty?)
@@ -167,11 +168,12 @@ class CommunitiesController < ApplicationController
             @newcommunity_ballot.create_notification(:message => "New Community (#{@community.name}) 1/#{@members.count} votes", :finished => false)
             @community.ballots << @newcommunity_ballot
             #Set author ballot to true since they're the creator of the vote
-            @author_vote = @newcommunity_ballot.votes.find_by_user_id(current_user.id)
+            @author_vote = @newcommunity_ballot.cvotes.find_by_user_id(current_user.id)
             @author_vote.approval = true
             @author_vote.save
+            @community.users << User.find(current_user.id)
             @community.save
-            format.html { redirect_to(communities_path, :notice => "You have created a community and it is now in the voting process") }
+            format.html { redirect_to(communities_path, :notice => "You have created a community and the invitation is sent to the members.") }
             format.xml  { render :xml => @community, :status => :created, :location => @community}
           else
             format.html { render :action => "new" }
@@ -207,7 +209,7 @@ class CommunitiesController < ApplicationController
           end
         end
       end
-
+      debugger
       if @edit_type == 'add'
         if @person == current_user
           redirect_to(community_path(@community), :notice => "You can't add/remove yourself from the community!")
@@ -256,7 +258,8 @@ class CommunitiesController < ApplicationController
 
       if @edit_type == 'add' or @edit_type == 'remove'
         #The person starting the vote will have their vote set to True automatically
-        @current_user_vote = Vote.find_by_user_id_and_ballot_id(current_user.id, @edittag_ballot.id)
+
+        @current_user_vote = Cvote.find_by_user_id_and_ballot_id(current_user.id, @editcommunity_ballot.id)
         @current_user_vote.approval = true
         @current_user_vote.save
       end

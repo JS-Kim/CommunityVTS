@@ -51,7 +51,8 @@ module CommentsHelper
   	elsif type == 1 #message_id is comment_id
   		annotations = CommentAnnotation.find(:all, :conditions => ["comment_id = ?", message.id]) 
   	end
-  	sel_communities = Community.find(:all)
+    debugger
+  	sel_communities = []
     
     results = []
     for annotation in annotations
@@ -60,6 +61,8 @@ module CommentsHelper
         @found_community = Community.find(:first, :conditions => "id = " + annotation.community_id.to_s)
         if @found_community.name != 'Public'  
           sel_communities << @found_community
+        else
+          sel_communities = Community.find(:all)
         end
       end
     end
@@ -75,7 +78,7 @@ module CommentsHelper
         sel_community_ids << sel_community.id
       end
     end
-#debugger
+debugger
     result_ids = user_community_ids & sel_community_ids
     results = Community.find(:all, :conditions => ["id IN (?)", result_ids])
 
