@@ -1,45 +1,136 @@
-<p id="notice"><%= notice %></p>
+ <% title "View Ballot" %>
+<%= render :partial => "ballots/show/buttons" %>
+<div id="email_header">
+<% if !@myvote.nil? %>
+    <% if @ballot.myballots_type == "Community" %>
+      <% if @ballot.vote_type == "add_community_member" %><br>
+        A New Member Added
+        <% if User.find(@ballot.member_id) == current_user %>
+          <%= form_tag url_for(:controller => "cvotes", :action => "voteaction", :id => @myvote.id), :metohd => "put" do %>
+            <% if @myvote.approval.nil? and @ballot.over == false %>
+              <div class="pull-right">
+               <%= submit_tag "Yes", :class => "btn btn-primary", :name => 'vote_yes' %>
+               <%= submit_tag "No", :class => "btn btn-primary", :name => 'vote_no' %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% elsif @ballot.vote_type == "remove_community_member" %><br>
+        A Member to Be Removed
+      <% elsif @ballot.vote_type == "new_community" %>
+        You are invited to a new <p><h3><%= Community.find(@ballot.content_id).name %></h3> </p>community.
+        <%= form_tag url_for(:controller => "cvotes", :action => "voteaction", :id => @myvote.id), :metohd => "put" do %>
+        <% if @myvote.approval.nil? and @ballot.over == false %>
+          <div class="pull-right">
+           <%= submit_tag "Yes", :class => "btn btn-primary", :name => 'vote_yes' %>
+           <%= submit_tag "No", :class => "btn btn-primary", :name => 'vote_no' %>
+          </div>
+        <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+<br><br>
 
-<p>
-  <b>Content:</b>
-  <%= @ballot.content_id %>
-</p>
+  <div id="show_content">
+    <% if @ballot.vote_type == "add_community_member" %>
+      <h2 id="green_tag_display">
+        <% if User.find(@ballot.member_id) == current_user %>
+          <%= User.find(@ballot.author_id) %> has invited you to join a community!
+        <% else %>
+          <%= User.find(@ballot.author_id).realname %> wants to invite <%= User.find(@ballot.member_id).realname %> (<%= User.find(@ballot.member_id) %>) to the community.
+        <% end %>
+      </h2>
+      <div id="exception_vote_email">
+        <strong>Name:</strong> <%= @ballot.myballots.name %><br />
+        <strong>Voting Members:</strong> <%= @ballot.users.join(", ") %><br />
+        <strong>Description:</strong> <%= @ballot.myballots.description %> <br />
+      </div>
+    <% elsif @ballot.vote_type == "new_community" %>
+      <h2 id="green_tag_display">
+        <%= User.find(@ballot.author_id) %> has created a new community!
+      </h2>
+      <br />
+      <div id="exception_vote_email">
+        <strong>Name:</strong> <%= @ballot.myballots.name %><br />
+        <strong>Voting Members:</strong> <%= @ballot.users.join(", ") %><br />
+        <strong>Description:</strong> <%= @ballot.myballots.description %> <br />
+      </div>
+      <br />
+    <% elsif @ballot.vote_type == "remove_community_member" %>
+      <h2 id="red_tag_display"><%= User.find(@ballot.author_id) %> wants to remove <%= User.find(@ballot.member_id) %> from the community</h2>
+      <div id="exception_vote_email">
+        <strong>Name:</strong> <%= @ballot.myballots.name %><br />
+        <strong>Voting Members:</strong> <%= @ballot.users.join(", ") %><br />
+        <strong>Description:</strong> <%= @ballot.myballots.description %> <br />
+      </div>
+    <% end %>
+    
+    <% if @ballot.member_id == current_user %>
+      <% if @myvote.approval %>
+        <%= image_tag("thumb_up.png", :size => "20x20") %> You said 'Yes'
+      <% elsif @myvote.approval == false %>
+        <%= image_tag("thumb_down.png", :size => "20x20") %> You said 'No'
+      <% end %>
+    <% end %>
+    <br />
 
-<p>
-  <b>Over:</b>
-  <%= @ballot.over %>
-</p>
+    <% if @ballot.over == false %>
+      <%= image_tag("vote.jpg", :size => "20x20") %> This message is not seen by all members yet.
+    <% elsif @ballot.outcome == 'success' %>
+      <%= image_tag("checkmark.png", :size => "20x20") %> This message is seen by all members
+    <% elsif @ballot.outcome == 'failure' %>
+      <%= image_tag("xmark.png", :size => "20x20") %> Failed to pass
+    <% end %>
 
-<p>
-  <b>Outcome:</b>
-  <%= @ballot.outcome %>
-</p>
+  </div>
+<% else %>
+  <% if @ballot.myballots_type == "Community" %>
+    <strong><%= link_to @ballot.myballots.name, @ballot.myballots %></strong> -
+    <% if @ballot.vote_type == "add_community_member" %>
+      Add Member Vote
+    <% elsif @ballot.vote_type == "remove_community_member" %>
+      Remove Member Vote
+    <% elsif @ballot.vote_type == "new_community" %>
+      New Community Vote
+    <% end %>
+  <% end %>
 
-<p>
-  <b>Vote type:</b>
-  <%= @ballot.vote_type %>
-</p>
-
-<p>
-  <b>Member:</b>
-  <%= @ballot.member_id %>
-</p>
-
-<p>
-  <b>Myballots:</b>
-  <%= @ballot.myballots_id %>
-</p>
-
-<p>
-  <b>Myballots type:</b>
-  <%= @ballot.myballots_type %>
-</p>
-
-<p>
-  <b>Author:</b>
-  <%= @ballot.author_id %>
-</p>
+  </div>
 
 
-<%= link_to 'Edit', edit_ballot_path(@ballot) %> |
-<%= link_to 'Back', ballots_path %>
+
+  <div id="show_content">
+    <% if @ballot.vote_type == "add_community_member" %>
+      <h2 id="green_tag_display">
+        <% if User.find(@ballot.member_id) == current_user %>
+          <%= User.find(@ballot.author_id) %> has invited you to join a community!
+        <% else %>
+          <%= User.find(@ballot.author_id).realname %> wants to invite <%= User.find(@ballot.member_id).realname %> (<%= User.find(@ballot.member_id) %>) to the community.
+        <% end %>
+      </h2>
+    <% elsif @ballot.vote_type == "new_community" %>
+      <h2 id="green_tag_display">
+        <%= User.find(@ballot.author_id) %> has created a new community!
+      </h2>
+    <% end %>
+
+
+    <% if @ballot.vote_type == "remove_community_member" %>
+      <h2 id="red_tag_display"><%= User.find(@ballot.author_id) %> wants to remove <%= User.find(@ballot.member_id) %> from the community tag</h2>
+    <% end %>
+
+    <p>Ballot status:
+      <% if @ballot.over? %>
+        Finished <%= image_tag("flag.png", :size => "20x20") %>
+      <% else %>
+        Ongoing <%= image_tag("vote.jpg", :size => "20x20") %>
+      <% end %>
+    </p>
+
+
+  </div>
+<% end %>
+<div id="comments">
+  <!-- put comment stuff here-->
+</div>

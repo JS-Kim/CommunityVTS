@@ -1,37 +1,52 @@
-<h1>Listing ballots</h1>
+<% title "Ballot Inbox" %>
+<% if !@cvotes.empty? %>
 
-<table>
-  <tr>
-    <th>Content</th>
-    <th>Over</th>
-    <th>Outcome</th>
-    <th>Vote type</th>
-    <th>Member</th>
-    <th>Myballots</th>
-    <th>Myballots type</th>
-    <th>Author</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <table width="100%" class="tbl">
+    <%= form_tag url_for(:controller => "cvotes", :action => "voteaction"), :metohd => "put" do %>
+      <% @cvotes.each do |vote| %>
+        <tr>
+          <% @ballot = vote.ballot %>
+          <td width="25px">
+            <% if vote.approval.nil? and @ballot.over == false %>
+                <%= check_box_tag "cvote_ids[]", vote.id %>
+            <% else %>
+              <% if vote.approval %>
+                <%= image_tag("thumb_up.png", :size => "20x20") %>
+              <% else %>
+                <%= image_tag("thumb_down.png", :size => "20x20") %>
+              <% end %>
+            <% end %>
+          </td>
+          <td width="25px">
+            <% if @ballot.outcome == 'success' %>
+              <%= image_tag("checkmark.png", :size => "20x20") %>
+            <% elsif @ballot.outcome == 'failure' %>
+              <%= image_tag("xmark.png", :size => "20x20") %>
+            <% elsif @ballot.over == false %>
+              <%= image_tag("vote.jpg", :size => "20x20") %>
+            <% end %>
 
-<% @ballots.each do |ballot| %>
-  <tr>
-    <td><%= ballot.content_id %></td>
-    <td><%= ballot.over %></td>
-    <td><%= ballot.outcome %></td>
-    <td><%= ballot.vote_type %></td>
-    <td><%= ballot.member_id %></td>
-    <td><%= ballot.myballots_id %></td>
-    <td><%= ballot.myballots_type %></td>
-    <td><%= ballot.author_id %></td>
-    <td><%= link_to 'Show', ballot %></td>
-    <td><%= link_to 'Edit', edit_ballot_path(ballot) %></td>
-    <td><%= link_to 'Destroy', ballot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+          </td>
+
+          <%= render :partial => "ballots/index/table_display", :locals => {:ballot => @ballot} %>
+        </tr>
+      <% end %>
+      <% if @filter == "pending" %>
+        <p>
+           <%= submit_tag "Yes", :class => "btn btn-primary", :name => 'submit_yes' %>
+           <%= submit_tag "No", :class => "btn btn-primary", :name => 'submit_no' %>
+        </p>
+      <% end %>
+    <% end %>
+
+  </table>
+<% else %>
+  <div class="no_content">
+    <% if @filter.include?("past") %>
+      You have no past votes. <br />
+    <% else %>
+      You have no pending votes. <br />
+    <% end %>
+  </div>
 <% end %>
-</table>
 
-<br />
-
-<%= link_to 'New Ballot', new_ballot_path %>

@@ -8,6 +8,7 @@ gem 'acts-as-taggable-on', '~>2.1.0' # https://github.com/mbleigh/acts-as-taggab
 gem 'gravatar-ultimate'
 gem 'mongrel'
 gem 'ancestry'
+
 # Authentication
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
