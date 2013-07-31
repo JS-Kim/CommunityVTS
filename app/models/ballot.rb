@@ -31,12 +31,14 @@ class Ballot < ActiveRecord::Base
   		if ballot.notification
   			ballot.notification.update_attributes(:message => "New Community (#{@community.name}): #{@cvotes.count}/#{ballot.cvotes.count} votes", :finished => finished, :approved => approved)
   		end
-  	elsif ballot.vote_type == 'add_community_member' or ballot.vote_type == 'remove_community_member'
+  	elsif ballot.vote_type == 'add_community_member' or ballot.vote_type == 'remove_community_member' or ballot.vote_type == 'leave_community'
   		@community = Community.find(ballot.content_id)
   		if ballot.vote_type == 'add_community_member'
   			@message = "Add Member" 
-  		else
+  		elsif ballot.vote_type == 'remove_community_member'
   			@message = "Remove Member"
+      elsif ballot.vote_type == 'leave_community'
+        @message = "Member Left"
   		end
   		finished = false
   		approved = nil
@@ -55,7 +57,7 @@ class Ballot < ActiveRecord::Base
   			#find the community and remove or add member depending on vote_type
   			if ballot.vote_type == 'add_community_member'
   				@community.users << User.find(ballot.member_id)
-  			elsif ballot.vote_type == 'remove_community_member'
+  			elsif ballot.vote_type == 'leave_community' or ballot.vote_type == 'remove_community_member'
   				@community.users.delete(User.find(ballot.member_id))
   			end
   			@community.update_attribute(:voteable, true)

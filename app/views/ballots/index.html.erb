@@ -7,9 +7,7 @@
         <tr>
           <% @ballot = vote.ballot %>
           <td width="25px">
-            <% if vote.approval.nil? and @ballot.over == false %>
-                <%= check_box_tag "cvote_ids[]", vote.id %>
-            <% else %>
+            <% unless vote.approval.nil? and @ballot.over == false %>
               <% if vote.approval %>
                 <%= image_tag("thumb_up.png", :size => "20x20") %>
               <% else %>
@@ -31,21 +29,15 @@
           <%= render :partial => "ballots/index/table_display", :locals => {:ballot => @ballot} %>
         </tr>
       <% end %>
-      <% if @filter == "pending" %>
-        <p>
-           <%= submit_tag "Yes", :class => "btn btn-primary", :name => 'submit_yes' %>
-           <%= submit_tag "No", :class => "btn btn-primary", :name => 'submit_no' %>
-        </p>
-      <% end %>
     <% end %>
 
   </table>
 <% else %>
   <div class="no_content">
     <% if @filter.include?("past") %>
-      You have no past votes. <br />
+      You have no past messages. <br />
     <% else %>
-      You have no pending votes. <br />
+      You have no pending messages. <br />
     <% end %>
   </div>
 <% end %>

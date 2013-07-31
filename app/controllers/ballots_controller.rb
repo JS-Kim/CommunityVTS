@@ -36,11 +36,11 @@ class BallotsController < ApplicationController
     #give me the vote associated with this ballot (the current_user's vote)
     @myvote = @ballot.cvotes.map{|x| x if x.user_id == current_user.id}.compact[0]
 
-    #KJS: if the member added is not yourself, then the message is automatrically approved
+    #KJS: if the member added or left is not yourself, then the message is automatrically approved
     @cvote = Cvote.find(@myvote.id)
     if @ballot.member_id != current_user.id
       if @ballot.myballots_type == "Community"
-        if @ballot.vote_type == "add_community_member" 
+        if @ballot.vote_type == "add_community_member" or @ballot.vote_type == "leave_community" 
           @cvote.approval = true
           @cvote.save
           if @cvote.update_attributes(params[:cvote])

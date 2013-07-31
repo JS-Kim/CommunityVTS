@@ -9,12 +9,15 @@
           <%= form_tag url_for(:controller => "cvotes", :action => "voteaction", :id => @myvote.id), :metohd => "put" do %>
             <% if @myvote.approval.nil? and @ballot.over == false %>
               <div class="pull-right">
+                Opt-in?
                <%= submit_tag "Yes", :class => "btn btn-primary", :name => 'vote_yes' %>
                <%= submit_tag "No", :class => "btn btn-primary", :name => 'vote_no' %>
               </div>
             <% end %>
           <% end %>
         <% end %>
+      <% elsif @ballot.vote_type == "leave_community" %><br>
+        A Member to Be Left
       <% elsif @ballot.vote_type == "remove_community_member" %><br>
         A Member to Be Removed
       <% elsif @ballot.vote_type == "new_community" %>
@@ -22,6 +25,7 @@
         <%= form_tag url_for(:controller => "cvotes", :action => "voteaction", :id => @myvote.id), :metohd => "put" do %>
         <% if @myvote.approval.nil? and @ballot.over == false %>
           <div class="pull-right">
+            Opt-in?
            <%= submit_tag "Yes", :class => "btn btn-primary", :name => 'vote_yes' %>
            <%= submit_tag "No", :class => "btn btn-primary", :name => 'vote_no' %>
           </div>
@@ -43,7 +47,7 @@
       </h2>
       <div id="exception_vote_email">
         <strong>Name:</strong> <%= @ballot.myballots.name %><br />
-        <strong>Voting Members:</strong> <%= @ballot.users.join(", ") %><br />
+        <strong>Members:</strong> <%= @ballot.users.join(", ") %><br />
         <strong>Description:</strong> <%= @ballot.myballots.description %> <br />
       </div>
     <% elsif @ballot.vote_type == "new_community" %>
@@ -53,15 +57,22 @@
       <br />
       <div id="exception_vote_email">
         <strong>Name:</strong> <%= @ballot.myballots.name %><br />
-        <strong>Voting Members:</strong> <%= @ballot.users.join(", ") %><br />
+        <strong>Members:</strong> <%= @ballot.users.join(", ") %><br />
         <strong>Description:</strong> <%= @ballot.myballots.description %> <br />
       </div>
       <br />
+    <% elsif @ballot.vote_type == "leave_community" %>
+      <h2 id="red_tag_display"><%= User.find(@ballot.author_id) %> left the community.</h2>
+      <div id="exception_vote_email">
+        <strong>Name:</strong> <%= @ballot.myballots.name %><br />
+        <strong>Members:</strong> <%= @ballot.users.join(", ") %><br />
+        <strong>Description:</strong> <%= @ballot.myballots.description %> <br />
+      </div>
     <% elsif @ballot.vote_type == "remove_community_member" %>
       <h2 id="red_tag_display"><%= User.find(@ballot.author_id) %> wants to remove <%= User.find(@ballot.member_id) %> from the community</h2>
       <div id="exception_vote_email">
         <strong>Name:</strong> <%= @ballot.myballots.name %><br />
-        <strong>Voting Members:</strong> <%= @ballot.users.join(", ") %><br />
+        <strong>Members:</strong> <%= @ballot.users.join(", ") %><br />
         <strong>Description:</strong> <%= @ballot.myballots.description %> <br />
       </div>
     <% end %>
@@ -88,11 +99,13 @@
   <% if @ballot.myballots_type == "Community" %>
     <strong><%= link_to @ballot.myballots.name, @ballot.myballots %></strong> -
     <% if @ballot.vote_type == "add_community_member" %>
-      Add Member Vote
+      Add Member 
+    <% elsif @ballot.vote_type == "leave_community" %>
+      Left Member
     <% elsif @ballot.vote_type == "remove_community_member" %>
-      Remove Member Vote
+      Remove Member 
     <% elsif @ballot.vote_type == "new_community" %>
-      New Community Vote
+      New Community 
     <% end %>
   <% end %>
 
@@ -115,9 +128,12 @@
       </h2>
     <% end %>
 
+    <% if @ballot.vote_type == "leave_community" %>
+      <h2 id="red_tag_display"><%= User.find(@ballot.author_id) %> left the community </h2>
+    <% end %>
 
     <% if @ballot.vote_type == "remove_community_member" %>
-      <h2 id="red_tag_display"><%= User.find(@ballot.author_id) %> wants to remove <%= User.find(@ballot.member_id) %> from the community tag</h2>
+      <h2 id="red_tag_display"><%= User.find(@ballot.author_id) %> wants to remove <%= User.find(@ballot.member_id) %> from the community </h2>
     <% end %>
 
     <p>Ballot status:

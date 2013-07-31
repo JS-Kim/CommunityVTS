@@ -25,7 +25,8 @@ Colloki::Application.routes.draw do
 
 
   #KJS. for 'community' concept
-  resources :notifications, :ballots
+  resources :notifications
+  resources :ballots, :path => "messages"
   resources :communities do
     collection do
       put 'update_selections'

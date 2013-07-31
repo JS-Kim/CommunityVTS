@@ -37,7 +37,7 @@
       </h2>
       <div id="exception_vote_email">
         <strong>Name:</strong> <%= @ballot.myballots.name %><br />
-        <strong>Voting Members:</strong> <%= @ballot.users.join(", ") %><br />
+        <strong>Members:</strong> <%= @ballot.users.join(", ") %><br />
         <strong>Description:</strong> <%= @ballot.myballots.description %> <br />
       </div>
     <% elsif @ballot.vote_type == "new_community" %>
@@ -47,7 +47,7 @@
       <br />
       <div id="exception_vote_email">
         <strong>Name:</strong> <%= @ballot.myballots.name %><br />
-        <strong>Voting Members:</strong> <%= @ballot.users.join(", ") %><br />
+        <strong>Members:</strong> <%= @ballot.users.join(", ") %><br />
         <strong>Description:</strong> <%= @ballot.myballots.description %> <br />
       </div>
       <br />
@@ -55,7 +55,7 @@
       <h2 id="red_tag_display"><%= User.find(@ballot.author_id) %> wants to remove <%= User.find(@ballot.member_id) %> from the community</h2>
       <div id="exception_vote_email">
         <strong>Name:</strong> <%= @ballot.myballots.name %><br />
-        <strong>Voting Members:</strong> <%= @ballot.users.join(", ") %><br />
+        <strong>Members:</strong> <%= @ballot.users.join(", ") %><br />
         <strong>Description:</strong> <%= @ballot.myballots.description %> <br />
       </div>
     <% end %>

@@ -4,18 +4,19 @@
   <strong><%= @community.name %></strong>
 
   <span id="header_buttons">
-    <%= link_to "Add Member", @community, :format => :js, :class => "buttons", :id => "add_member", :remote => true %>
-    <%= link_to("Remove Member", "#", :class => "buttons", :id => "remove_member") %>
-    <%= link_to("Edit Description", "#", :class => "buttons", :id => "edit_description") %>
-    <div class="pull-left hidden-phone hidden-tablet" id="navbar-share">
-            <a data-toggle="modal" href="#addMember-modal" class="btn btn-small btn-info">
-              <i class="icon-pencil icon-white"></i>
-              Add Member
-            </a>
-          </div>s
-  <!-- Modal for share button -->
+    <div class="pull-left" id="Members">
+      <a data-toggle="modal" href="#addMember-modal" class="btn btn-small btn-info">
+        <i class="icon-user icon-white"></i>
+        Add Member
+      </a>
+      <a data-toggle="modal" href="#leaveCommunity-modal" class="btn btn-small btn-info">
+        <i class="icon-eject icon-white"></i>
+        Leave Community
+      </a>
+    </div>
+  <!-- Modal for buttons in the community -->
     <%= render :partial => "partials/modal/addMember" %>
-    
+    <%= render :partial => "partials/modal/leaveCommunity" %>
 </span>
 </div>  <br>
 

@@ -10,6 +10,12 @@
             <% else %>
               <%= User.find(ballot.author_id).realname %> wants to invite <%= User.find(ballot.member_id).realname %> (<%= User.find(ballot.member_id) %>) to the community
             <% end %>
+          <% elsif ballot.vote_type == "leave_community" %>
+            <% if User.find(ballot.member_id) == current_user %>
+              You left the community.
+            <% else %>
+              <%= User.find(ballot.author_id) %> left the community.
+            <% end %>
           <% elsif ballot.vote_type == "remove_community_member" %>
             <%= User.find(ballot.author_id) %> wants to remove <%= User.find(ballot.member_id) %> from the community
           <% elsif ballot.vote_type == "new_community" %>

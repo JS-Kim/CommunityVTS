@@ -194,7 +194,10 @@ class CommunitiesController < ApplicationController
         @person = User.find_by_email(params[:add_person])
       elsif @edit_type == 'remove'
         @person = User.find_by_email(params[:remove_person])
+      elsif @edit_type == 'leave'
+        @person = User.find_by_email(params[:leave_person])
       end
+      debugger
       #This is needed for the jQuery .submit() call
       @archive = params["archive_#{@community.id}".to_sym]
       @community.archived = @archive unless @archive.nil?
@@ -204,12 +207,11 @@ class CommunitiesController < ApplicationController
       if @edit_type == 'add' or @edit_type == 'remove'
         @community.ballots.each do |b|
           if b.member_id == @person.id and b.over == false
-            redirect_to(community_path(@community), :notice => "There is already a vote in progress for " + @person.to_s)
+            redirect_to(community_path(@community), :notice => "There is already a message in progress for " + @person.to_s)
             return
           end
         end
       end
-      debugger
       if @edit_type == 'add'
         if @person == current_user
           redirect_to(community_path(@community), :notice => "You can't add/remove yourself from the community!")
@@ -252,21 +254,44 @@ class CommunitiesController < ApplicationController
         @community.voteable = false
         @community.ballots << @editcommunity_ballot
         @community.save
+      elsif @edit_type == 'leave'
+        debugger
+        if @person == current_user
+          @editcommunity_ballot = Ballot.new('content_id' => @community.id, 'over' => false,
+          'vote_type' => 'leave_community', 'users' => @community.users,
+          'member_id' => @person.id, 'author_id' => current_user.id)
+          @editcommunity_ballot.save
+          @editcommunity_ballot.create_notification(:message => "Member Left (#{@community.name}) 1/#{@community.users.count-1} votes", :finished => false)
+          @community.voteable = false
+          @community.ballots << @editcommunity_ballot
+          @community.users.delete(@person)
+          @community.save
+        end
+        #create a ballot for this member removal; create votes for everyone but the current_user and the person we're removing
+        
       else
         #edit_type not found
       end
 
-      if @edit_type == 'add' or @edit_type == 'remove'
+      if @edit_type == 'add' or @edit_type == 'remove' or @edit_type == 'leave'
         #The person starting the vote will have their vote set to True automatically
-
+        debugger
         @current_user_vote = Cvote.find_by_user_id_and_ballot_id(current_user.id, @editcommunity_ballot.id)
+
         @current_user_vote.approval = true
         @current_user_vote.save
       end
 
+      notice_msg = 'Community was successfully updated.'
+      if @edit_type == 'add'
+        notice_msg = 'A message was successfully sent.'
+      elsif @edit_type == 'leave'
+        notice_msg = 'Your opt-out completed successfully.'
+      end  
+
       respond_to do |format|
         if @community.update_attributes(params[:community])
-          format.html { redirect_to(@community, :notice => 'Community was successfully updated. If you added or removed a member, a vote is now in progress.') }
+          format.html { redirect_to(@community, :notice => notice_msg) }
           format.xml  { head :ok }
         else
           format.html { render :action => "edit" }
