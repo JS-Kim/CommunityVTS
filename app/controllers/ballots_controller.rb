@@ -33,10 +33,35 @@ class BallotsController < ApplicationController
       @email = Email.find(@ballot.content_id)
     end
 
+    community_members = []
+    community_user_ids = []
+    @community_memberships = Membership.find(:all, :conditions => ["community_id = ?", @ballot.content_id])
+    @community_user_ids = @community_memberships.map {|c| c.user_id}
+    @community_members = User.find(:all, :conditions => ["id IN (?)",@community_user_ids])
+
+    @cvotes = []
+    cvotes_user_ids = []
+    @pending_members = [] 
+    @accept_members = []
+    @reject_members = []
+    #KJS: for all types?
+    #@cvotes = Cvote.find(:all, :conditions => {:ballot_id => @ballot.id})
+    @all_ballots_in_community = Ballot.find(:all, :conditions => ["content_id = ?", @ballot.content_id])
+    @cvotes = Cvote.find(:all, :conditions => ["ballot_id IN (?)", @all_ballots_in_community ])
+    #@cvotes = Cvote.find(:all, :conditions => {:ballot_id => @ballot.id, :approval => nil})
+    @cvotes_user_ids = @cvotes.map {|c| c.user_id if c.approval == nil}.compact - @community_user_ids
+    @pending_members = User.find(:all, :conditions => ["id IN (?)", @cvotes_user_ids])
+    #@cvotes = Cvote.find(:all, :conditions => {:ballot_id => @ballot.id, :approval => true})
+    #@cvotes_user_ids = @cvotes.map {|c| c.user_id if c.approval == true}.compact #remove nil results
+    #@accept_members = User.find(:all, :conditions => ["id IN (?)", @cvotes_user_ids])
+    #@cvotes = Cvote.find(:all, :conditions => {:ballot_id => @ballot.id, :approval => false})
+    @cvotes_user_ids = @cvotes.map {|c| c.user_id if c.approval == false}.compact - @community_user_ids
+    @reject_members = User.find(:all, :conditions => ["id IN (?)", @cvotes_user_ids])
+
     #give me the vote associated with this ballot (the current_user's vote)
     @myvote = @ballot.cvotes.map{|x| x if x.user_id == current_user.id}.compact[0]
 
-    #KJS: if the member added or left is not yourself, then the message is automatrically approved
+    #KJS: if the member added or left is not yourself, then the message is automatrically approved when you see the message
     @cvote = Cvote.find(@myvote.id)
     if @ballot.member_id != current_user.id
       if @ballot.myballots_type == "Community"

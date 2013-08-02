@@ -87,6 +87,39 @@ class CommunitiesController < ApplicationController
     if logged_in?
       @community = Community.find(params[:id])
 
+      #KJS: Aug. 2. 2013
+
+    community_members = []
+    community_user_ids = []
+    @community_memberships = Membership.find(:all, :conditions => ["community_id = ?", @community.id])
+    @community_user_ids = @community_memberships.map {|c| c.user_id}
+    @community_members = User.find(:all, :conditions => ["id IN (?)",@community_user_ids])
+
+    @cvotes = []
+    cvotes_user_ids = []
+    @pending_members = [] 
+    @accept_members = []
+    @reject_members = []
+    @left_members = []
+    #KJS: for all types?
+    #@cvotes = Cvote.find(:all, :conditions => {:ballot_id => @ballot.id})
+    @all_ballots_in_community = Ballot.find(:all, :conditions => ["content_id = ?", @community.id])
+    @cvotes = Cvote.find(:all, :conditions => ["ballot_id IN (?)", @all_ballots_in_community ])
+    #@cvotes = Cvote.find(:all, :conditions => {:ballot_id => @ballot.id, :approval => nil})
+    @cvotes_user_ids = @cvotes.map {|c| c.user_id if c.approval == nil}.compact - @community_user_ids
+    @pending_members = User.find(:all, :conditions => ["id IN (?)", @cvotes_user_ids])
+    #@cvotes = Cvote.find(:all, :conditions => {:ballot_id => @ballot.id, :approval => true})
+    #@cvotes_user_ids = @cvotes.map {|c| c.user_id if c.approval == true}.compact #remove nil results
+    #@accept_members = User.find(:all, :conditions => ["id IN (?)", @cvotes_user_ids])
+    #@cvotes = Cvote.find(:all, :conditions => {:ballot_id => @ballot.id, :approval => false})
+    @cvotes_user_ids = @cvotes.map {|c| c.user_id if c.approval == false}.compact - @community_user_ids
+    @reject_members = User.find(:all, :conditions => ["id IN (?)", @cvotes_user_ids])
+
+    #KJS: left members at will
+    @opt_out_ballots = Ballot.find(:all, :conditions => ["content_id = ? AND member_id = author_id AND vote_type= ?", @community.id, "leave_community"])
+    @ballot_user_ids = @opt_out_ballots.map {|b| b.member_id}
+    @left_members = User.find(:all, :conditions => ["id IN (?)", @ballot_user_ids])
+
       respond_to do |format|
         format.html # show.html.erb
         format.xml  { render :xml => @community }
@@ -204,14 +237,14 @@ class CommunitiesController < ApplicationController
       @community.save
 
       #Don't let more than one vote per member occur
-      if @edit_type == 'add' or @edit_type == 'remove'
-        @community.ballots.each do |b|
-          if b.member_id == @person.id and b.over == false
-            redirect_to(community_path(@community), :notice => "There is already a message in progress for " + @person.to_s)
-            return
-          end
-        end
-      end
+      # if @edit_type == 'add' or @edit_type == 'remove'
+      #   @community.ballots.each do |b|
+      #     if b.member_id == @person.id and b.over == false
+      #       redirect_to(community_path(@community), :notice => "There is already a message in progress for " + @person.to_s)
+      #       return
+      #     end
+      #   end
+      # end
       if @edit_type == 'add'
         if @person == current_user
           redirect_to(community_path(@community), :notice => "You can't add/remove yourself from the community!")

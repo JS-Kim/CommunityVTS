@@ -7,8 +7,12 @@ module ApplicationHelper
     content_for(:title) { page_title }
   end
 
+  def format_joined_date(date)
+    date.strftime("%m/%d/%Y")
+  end
+
   def format_ballot_date(date)
-    date.strftime("%b %e")
+    date.strftime("%m/%d/%Y")
   end
   
   def sort_selected?(sort_name)

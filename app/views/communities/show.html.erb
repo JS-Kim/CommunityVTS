@@ -22,14 +22,35 @@
 
 
 <div id="show_content">
-  <h3>Members</h3>
+  <h4>Community Members</h4>
   <ul class="tag-show-users">
     <% @community.users.each do |u| %>
+        <li><%= u.login %> (<%= u.realname %>) : <%= u.email %>, joined at <%= joined_date(u.id, @community.id) %> </li>
+    <% end %>
+  </ul>
+  
+   <h4>Members left:</h4>
+  <ul class="tag-show-users">
+    <% @left_members.each do |u| %>
+        <li><%= u.login %> (<%= u.realname %>) : <%= u.email %>, left at <%= left_date(u.id, @community.id) %></li>
+    <% end %>
+  </ul>
+
+  <h4>Users in Pneding:</h4>
+  <ul class="tag-show-users">
+    <% @pending_members.each do |u| %>
         <li><%= u.login %> (<%= u.realname %>) : <%= u.email %></li>
     <% end %>
   </ul>
 
-  <h3>Description</h3>
+  <h4>Who Rejected to Join:</h4>
+  <ul class="tag-show-users">
+    <% @reject_members.each do |u| %>
+        <li><%= u.login %> (<%= u.realname %>) : <%= u.email %>, rejected at <%= reject_date(u.id, @community.id) %></li>
+    <% end %>
+  </ul>
+  
+  <h4>Description</h4>
   <%= @community.description %>
 </div>
 
